@@ -1,0 +1,13 @@
+package com.study.springboot.jdbc;
+
+import java.util.ArrayList;
+
+import org.apache.ibatis.annotations.Mapper;
+
+@Mapper
+public interface iOrder {
+	ArrayList <SaleDTO> getSalesList();
+	ArrayList <SaleDTO> getSalesList2();
+	void addOrder(String mobile, String menu, int qty, int price);
+	int getTotal();
+}

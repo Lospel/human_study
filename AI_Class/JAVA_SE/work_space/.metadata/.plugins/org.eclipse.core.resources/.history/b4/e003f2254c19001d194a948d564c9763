@@ -1,0 +1,13 @@
+package Exam_04Training;
+
+public class 간단한게임만들기연습 {
+
+	public static void main(String[] args) {
+		게임만들기연습설계도 s1 = new 게임만들기연습설계도 ();
+		System.out.printf("주사위1의 값 => %f \n", s1.GameDies1);	
+		System.out.printf("주사위2의 값 => %f \n", s1.GameDies2);
+		while(true) {
+			
+		}
+	}
+}

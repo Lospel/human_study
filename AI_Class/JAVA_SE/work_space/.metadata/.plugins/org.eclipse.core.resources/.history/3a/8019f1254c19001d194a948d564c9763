@@ -1,0 +1,13 @@
+package Exam_04Training;
+
+public class 게임만들기연습설계도 {
+	public String GameName;
+	public double GameDies1;
+	public double GameDies2;
+	
+	public 게임만들기연습설계도 () {
+		GameName = "HID";
+		GameDies1 = Math.random()*6 +1;
+		GameDies2 = Math.random()*6 +1;
+	}
+}
