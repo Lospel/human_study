@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            background-color:yellow;
+            height:500px;
+            display :flex;
+        }
+        /* item 설정의 정의 */
+        .item {
+            background-color: green;
+            border: 1px solid black;
+            width : 300px;
+            height : 200px;
+        }
+        #item1{
+            flex-shrink : 5 
+        }
+        #item2{
+            /* 아이템이 작아질 때 줄어드는 것을 정의함. */
+            /* 기본값은 0임. 기본일 경우는 본인의 사이즈로 정의됨.*/
+            /* 5로 설정하면 줄어드는 속도도 커짐. */
+            flex-shrink : 1 
+        }
+        #item3{
+            flex-shrink : 5 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="item1" class="item">11</div>
+        <div id="item2" class="item">12</div>
+        <div id="item3" class="item">13</div>
+    </div> 
+</body>
+</html>

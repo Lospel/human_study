@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/Event03.js"></script>
+    <style>
+        .file-button {
+            display: none;
+            /* 숨김처리 */
+        }
+        .file-trigger {
+            background-color: green;
+            border: 1px solid lightgreen;
+            border-radius: 5px;
+            padding: 5px 10px;
+            color: white;
+            cursor: pointer;
+        }
+        .file-trigger:hover {
+            /* hover는 마우스가 올라갔을때. */
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="section1">
+        <input type="file" class="file-button" />
+        <span class="file-trigger">파일선택</span>
+        <!-- span은 문장을 표현 -->
+    </section>
+</body>
+
+</html>

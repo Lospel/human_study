@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <p>
+          <label for="id_txt">id : </label>
+          <!-- for="id_txt"는 라벨 클릭시 커서의 위치를 id_txt로 보냄 -->
+          <input type="text" name="id" id="id_txt" />
+        </p>
+        <p>
+          <label for="pwd_text">password : </label>
+          <input type="password" name="pwd" id="pwd_text" />
+        </p>
+        <p>
+          <label>RED
+            <input type="checkbox" name="color" value="red" />
+          </label>
+          <!-- label 안에 있는 것은 모두 선택 가능. -->
+          <label for="color_blue">BLUE</label>
+          <input type="checkbox" name="color" value="blue" id="color_blue" />
+        </p>
+        <p><input type="submit" name="textarea" value="보내기"/></p>
+      </form>
+</body>
+</html>

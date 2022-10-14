@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let exam1 = { id: 1, title: "Human" };
+        // key에 해당하는 것은 문자열로 하는 것이 원칙
+        // 묵시적으로 문자열로 인식.
+        let exam2 = { "id": 1, "title": "Human" };
+        let exam3 = { "n id": 1, "title": "Human" };
+        console.log(exam3["n id"]);
+
+        // 다른 사이트에서 전달될 때에는 양쪽에 '' 붙여서 문자열 형태로 전달됨.
+        // 그래서 아래와 같이 처리해야 parsing이 가능함.
+        let exam4 = '{"id":1, "title":"Human"}';
+        console.log(exam4);
+
+        let data1 = JSON.parse(exam4);
+        // JSON.parse은 문자열을 벗겨냄. 인자안에 있는 exam4는 문자열이어야함.
+        console.log(data1);
+        console.log(data1.id, data1.title);
+
+        // let data2 = JSON.parse(exam2);
+        // 문자열이 아닌 JSON 데이터가 바로 들어오면, 문제발생.
+        // console.log(data2);
+        // 이를 해결하기 위해 JSON 데이터를 문자열로 변경.
+        let data2 = JSON.parse(JSON.stringify(exam2));
+        // JSON.stringify는 JSON 데이터에 문자열을 붙여주는 역할을 함.
+        console.log(data2);
+        console.log(data2["id"], data2["title"]);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // function printResult1() {
+        //     let x, y;
+        //     x = eval(prompt('x값 입력', 0));
+        //     y = eval(prompt('y값 입력', 0));
+
+        //     btnInput.value = x + y;
+        // }
+        // function init() {
+        //     let btnPrint = document.getElementById("btnInput");
+        //     // btnPrint는 button 객체를 의미함.
+        //     btnPrint.onclick = printResult1;
+        // }
+        // window.onload = init;
+
+        // 위의 내용이 아래로 변환됨.
+        window.onload = function () {
+            let btnPrint = document.getElementById("btnInput");
+            // btnPrint는 button 객체를 의미함.
+            btnPrint.onclick = function () {
+                let x, y;
+                x = eval(prompt('x값 입력', 0));
+                y = eval(prompt('y값 입력', 0));
+                btnInput.value = x + y;
+            };
+            // 객체별 이벤트별 별도 기능을 정의할 수 있음
+            btnPrint.onmouseover = function () {
+                alert("안녕하세요");
+            };
+        };
+    </script>
+</head>
+
+<body>
+    <input type="button" id="btnInput" value="실행전" />
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQUERY</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
+    </script>
+    <!-- <script src="../js/jquery-3.6.1.min.js"></script> -->
+    <!-- 다른 사이트도 JQuery로 만들어 놓은 것이 많음. 
+        그래서 cash에 jquery 스크립트 파일이 있을 가능성이 높으므로 
+        CDN을 활용하는 것 효율적임. -->
+</head>
+<body>
+    <div class="human"></div>
+    <div class="human"></div>
+    <div class="human"></div>
+    <script>
+        $(".human").html("hello, Human!!").css("background-color", "yellow");
+    </script>
+</body>
+</html>

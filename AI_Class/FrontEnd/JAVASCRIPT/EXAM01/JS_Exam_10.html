@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        let a = 1;
+        function f1(){
+            let a = 2;
+            console.log("함수안에서 : ", a);
+        }
+        f1();
+        console.log("함수밖에서 : ", a);
+        // 전역변수 a가 선언되지 않으면 함수밖에서 a는 인식되지 않음.
+        */
+        function f2() {
+            a = 1;
+            // 선언의 내용이 없으면 호이스팅, 전역변수화 됨.
+            // 위의 a는 window.a라는 전역변수로 선언됨.
+            // 그래서 JAVA 스크립트도 let으로 선언 후 사용을 권장함.
+            console.log("함수안에서 : ", a);
+        }
+        f2();
+        console.log("함수밖에서 : ", a);    // ==> 문제없음
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

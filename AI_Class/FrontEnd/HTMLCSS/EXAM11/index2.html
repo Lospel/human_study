@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* container 설정 정의 */
+        .container{
+            background-color:yellow;
+            height:500px;
+            display :flex;
+            flex-direction: row;
+            /* row(기본값), row-reverse, column, column-reverse  */
+            flex-wrap : wrap;
+            /* nowrap(기본값), wrap, wrap-reverse */
+            /* 위의 2개를 flex-flow : row nowrap 으로 표현가능함. */
+            justify-content : space-around;
+            /* 여백을 어느쪽으로 배치할 것인가? */
+            /* flex-start(기본값), flex-end, center, space-between, space-around */
+            
+            /* 아래부터는 웹페이지로 설명 */
+            /* https://codepen.io/enxaneta/pen/adLPwv */
+            align-items : flex-end;
+            /* flex-start(기본값), flex-end, center, baseline, stretch */
+            /* baseline은 text의 중심축을 만들어줌. */
+            /* stretch은 높이를 꽉채움. */
+            align-content : flex-start;
+            /* item이 많아야 함. */
+            /* flex-start(기본값), flex-end, center, space-between, space-around */
+        }
+        .item {
+            background-color: green;
+            border: 1px solid black;
+            width : 300px;
+            height : 200px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">10</div>
+        <div class="item">11</div>
+        <div class="item">12</div>
+
+    </div> 
+</body>
+</html>

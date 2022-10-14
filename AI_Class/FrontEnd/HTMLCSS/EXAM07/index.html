@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            background-color: red;
+        }
+/* id = # */
+        #human1 {
+            background-color: green;
+        }
+/* class = . */
+        .human2 {
+            background-color: yellow;
+        }
+
+        h2[id] {
+            background-color: skyblue;
+        }
+
+        h2[class] {
+            background-color: gray;
+        }
+
+        h2[dir="a"] {
+            background-color: coral;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>휴먼교육센터1</h1>
+    <h1>휴먼교육센터2</h1>
+    <h1 id="human1">휴먼교육센터3</h1>
+    <h1 id="human1">휴먼교육센터4</h1>
+    <h1 class="human2">휴먼교육센터5</h1>
+    <h1 class="human2">휴먼교육센터6</h1>
+    <h1 id="human1" class="human2">휴먼교육센터7</h1>
+    <h2 id="human1">휴먼교육센터8</h2>
+    <h2 class="human2">휴먼교육센터9</h2>
+    <!-- 스타일 우선순위 : ID > 속성[id](#id명) >  속성[class](.class명) > class > tag(tag명) -->
+    <h2 id="human1">휴먼교육센터10</h2>
+    <h2 class="human2">휴먼교육센터11</h2>
+    <h2 dir="a" class="human2">휴먼교육센터12</h2>
+</body>
+
+</html>

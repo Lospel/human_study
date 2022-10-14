@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <td th:text="${name}"></td>
+
+    <form th:action="@{/board/insert}" method="post">
+        <table th:align="center" border="1" th:cellpadding="0" th:cellspacing="0">
+            <tr>
+                <td bgcolor="#add8e6" th:text="id" width="80"></td>
+                <td><input name="seq" type="text" size="50"></td>
+            </tr>
+            <tr>
+                <td bgcolor="#add8e6" th:text="제목" width="80"></td>
+                <td><input name="name" type="text" size="50"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="게시글 등록">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

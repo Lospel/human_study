@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- fetch는 파일을 요청하는데, 회신 받았을 때 callbcakme함수를 호출하고
+        요청 후 바로 다음 동작을 진행함. -->
+    <input type="button" value="call back me" onclick="fetch('../EXAM01/CSS.html').then(callbackme);
+            function callbackme(){
+                console.log('respose OK')
+            }
+            console.log(1);
+            console.log(2);
+            console.log(3);
+            " />
+    <!-- fetch 후 callback 처리시, response를 받아오는데,
+        response의 text를 확인하는 작업.
+        요청한 Web문서는 text라는 변수에 담겨서 회신된다. -->
+    <input type="button" value="click AJAX" onclick="fetch('./txt/CSS').then(
+        function (response){
+            response.text().then(
+                function(text){
+                    alert(text);
+                    console.log(response.status);    // 성공하면 200, 실패하면 400
+                    console.log(response.ok);    // 성공하면 true, 실패하면 false
+                       
+                }
+            )
+        });" />
+    <input type="button" value="click article" onclick="fetch('./txt/CSS').then(
+            function (response){
+                response.text().then(
+                    function(text){
+                        if(response.ok = true) {
+                            document.querySelector('article').innerHTML=text;
+                        }
+                         else {
+                            console.log('ERROR 발생');
+                         }
+                    }
+                )
+            });" />
+    <article>
+
+    </article>
+</body>
+
+</html>

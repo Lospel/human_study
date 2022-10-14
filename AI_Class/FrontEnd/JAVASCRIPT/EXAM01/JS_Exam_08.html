@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let ar = ["HUMAN", "human", "Computer", "World"];
+        for (let i = 0; i < ar.length; i++) {
+            document.write(ar[i] + "<br>");
+        }
+        for (i in ar) {
+            // i는 ar의 값이 들어가는 것이 아니라 index가 들어감.
+            // i는 0~3의 값이 들어가는 것이 JAVA와 다름.
+            document.write(i + " : " + ar[i] + "<br>");
+        }
+        // JSON은 어떻게 처리가 되는가
+        let ob = { "id": 1, "title1": "human", "title2": "Computer" };
+        for (i in ob) {
+            // JSON으로 관리되는 데이터는 i에 key값이 대입됨.
+            document.write(i + " : " + ob[i] + "<br>");
+            // ob[i] ==> ob["id"] ... ob["title2"]
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

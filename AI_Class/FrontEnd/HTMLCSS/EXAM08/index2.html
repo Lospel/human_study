@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* ol 형제 중 다음 ul 하나만 */
+        ol + ul {
+            background-color: yellow;
+        }
+        /* ol 형제 중 ul 모두 */
+        ol~ul{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <ol>
+        <li>html4</li>
+        <li>html5</li>
+    </ol>
+    <ul>
+        <li>css2.0</li>
+        <li>css3.0</li>
+    </ul>
+    <ul>
+        <li>JS</li>
+        <li>AJAX</li>
+    </ul>
+</body>
+</html>

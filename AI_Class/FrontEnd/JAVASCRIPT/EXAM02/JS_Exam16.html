@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script>
+        function printResult1() {
+            let x, y;
+            x = eval(prompt('x값 입력', 0));
+            y = eval(prompt('y값 입력', 0));
+            
+            btnInput.value = x + y;
+        }
+        function init(){
+        btnInput.onclick = printResult1;
+        }
+        window.onload = init;
+        // 모든 소스가 다 메모리에 load된 후(다 읽은 후) init함수 호출
+    </script>
+</head>
+
+<body>
+    <!-- btnInput이 정의된 후 script 수행하기 위해 순서 변경이 필요함. -->
+    <!-- 그래서 onLoad라는 함수를 통해서 해결 가능. -->
+    <input type="button" id="btnInput" value="실행전" />
+
+    
+</body>
+
+</html>

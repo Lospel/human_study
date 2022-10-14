@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let add1 = new Function("x,y", "return x+y");
+        // alert(add1(3, 4));
+        document.write(add1(3, 4));
+        document.write("<br>");
+
+        let add2 = function (x, y) {
+            return x + y;
+        }
+        document.write(add2(10, 4));
+        document.write("<br>");
+
+        function add3(x, y) {
+            return x + y;
+        }
+        document.write(add3(10, 9));
+        document.write("<br>");
+
+        function add4(x,y){
+            console.log(arguments);
+            console.log(arguments[0],arguments[1],arguments[5],arguments[6]);
+            // 위의 x는 arguments[0], y는 arguments[1]
+            return x+y;
+        }
+        // document.write(add4(10, 16));
+        // document.write("<br>");
+        document.write(add4(3,4,5,6,7,"HUMAN"));
+        document.write("<br>");
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

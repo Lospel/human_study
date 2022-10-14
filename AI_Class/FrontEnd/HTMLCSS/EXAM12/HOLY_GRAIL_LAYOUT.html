@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            border-bottom: 1px solid gray;
+            padding-left: 20px;
+        }
+
+        footer {
+            border-top: 1px solid gray;
+            padding-left: 20px;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .content nav {
+            border-right: 1px solid gray;
+        }
+
+        .content aside {
+            border-left: 1px solid gray;
+        }
+
+        main {
+            padding: 10px;
+        }
+
+        nav, aside {
+            flex-basis: 150px;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+
+<body LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0 >
+    <div id="container">
+        <header>
+            <h1>휴먼교육센터</h1>
+        </header>
+        <section class="content">
+            <nav>
+                <ul>
+                    <li>학원소개</li>
+                    <li>과정소개</li>
+                    <li>게시판</li>
+                </ul>
+            </nav>
+            <main>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta blanditiis velit facilis dolor, a nihil,
+                harum reiciendis impedit neque doloremque, repellendus voluptatibus quasi earum vel. Cumque perspiciatis
+                mollitia quibusdam deleniti.
+                Quidem harum accusamus suscipit tenetur. Distinctio, perspiciatis exercitationem impedit commodi
+                architecto, dolorem voluptatibus error quasi molestiae molestias animi delectus nisi odio voluptatum ad
+                iste doloribus totam asperiores tempore quibusdam quis?
+                Quia illum odio dolorem omnis laboriosam voluptatibus possimus at rem dolor eum modi mollitia, animi
+                ullam quas commodi magni, esse eveniet quos ipsum. Vitae ratione sequi vero deleniti officiis at?
+            </main>
+            <aside>
+                AD
+            </aside>
+        </section>
+        <footer>
+            <a href="www.human.or.kr">학원 홈페이지</a>
+        </footer>
+    </div>
+</body>
+
+</html>
