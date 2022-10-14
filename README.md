@@ -23,4 +23,3 @@
     - 테이블 생성 및 select, join 등을 활용한 DB관리
 - **MachineLearning & DeepLearning**
 - **SpringBoot**
-    - 
