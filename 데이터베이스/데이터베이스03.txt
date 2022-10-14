@@ -1,0 +1,55 @@
+오라클 SQL
+1. Merge문 (오라클 SQL only)
+: 조건에 맞는 데이터가 없으면 insert, 있으면 update. 
+== (MySQL의 replace와 비슷하다.)
+
+2. rollback(복구), commit(확정)
+drop table schema+data; -> 복구 불능
+truncate table data; -> 복구 불능
+delete from data; -> 복구 가능(rollback) -> commit으로 데이터를 데이터베이스에 저장하면 rollback 복구 가능.
+	ex) insert , savepoint A, update, savepoint B, delete, savepoint C, update, rollback to savepoint B;
+
+3. 의사컬럼(Pseudo-column)
+: 테이블의 컬럼처럼 동작하지만 실제로 테이블에 저장이 되어 있지 않은 컬럼.
+nextval, currval, rownum, rowid
+
+4. 연산자(산술>비교>논리)(단, 괄호부터 먼저 실행)
+Select
+- 산술연산자 : +, -, *(asterisk), /, ||(문자열 연결연산자)
+	ex) select 3+5 from dual; (MySQL은 from이 없어도 됨)
+	ex) select salary, salary*1.1 from employees;
+	ex) select emp_name, salary from employees where salary*2>10000;
+	ex) select '[' || emp_name || ']' from employees;
+Where
+- 비교연산자 : =, !=, <>, >, <, >=, <=, 컬럼명 is null, 컬럼명 is not null
+- 논리연산자 : and, or, not
+- 집합연산자 : union/union all(합집합), intersect(교집합), minus(차집합)
+
+5. 표현식
+case when 조건1 then 값1 ... when 조건n then 값n else 기타 값 end; -> select 안에만 사용가능.(where에서는 사용안함)
+	ex) select employee_id, salary, 
+   		 case when salary <= 5000 then 'C' when salary >= 5000 and salary <= 10000 then 'B' 
+   		 else 'A' 
+   		 end as grade
+	from employees; 
+컬럼명 as aliasname(별명) -> MySQL은 별명을 붙일 때 as가 필요하지 않다.
+
+6. 조건식(Where)
+where not(salary>=2500) -> salary < 2500
+where not salary > 4000
+
+컬럼명 between 값A and 값B -> 컬럼명 >=값A and 컬럼명 <= 값B
+	ex) salary between 5000 and 10000 == salary >= 5000 and salary <= 10000
+컬럼명 in (값1,...,값n) -> 컬럼명=값1 or ... or 값n == 컬럼명 = any (값1,...,값n)
+
+like 
+: 1) 문자열 대상 2) 표현식 : %(0개 이상의 문자), _(1개 문자)
+컬럼명 like '표현식'
+	ex) name like 'a_' -> a로 시작하는 두글자
+	ex) name like 'a__'
+	ex) name like 'a_d__' -> ander ... (ander1 X)
+	ex) name like 'J%' -> J, John, James, .... (jerky X, 대소문자구분)
+	ex) name like 'th%'
+	ex) name like '%son'
+	ex) name like '%son %'
+	ex) name like '%y' or name like 'y%' ...

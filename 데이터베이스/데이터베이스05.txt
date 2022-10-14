@@ -1,0 +1,33 @@
+오라클 SQL
+1. 기본 집계 함수
+count(*) - 개수 세기
+	count(칼럼명) -> 값이 null인 칼럼은 포함되지 않는다.
+sum(숫자칼럼명) - 합계
+avg() - 평균
+min()/max() - 최소/최대값
+variance()/stddev() - 분산도/표준편차
+★distinct : 대표값만 표시, ()가 없다.
+	ex) 10,10,8,12,5,5,4,7,4, -> 10,8,12,5,4,7
+	ex) select distinct salary from employees;
+order by : 정렬(A-Z, a-z, 0-9)
+	ex) order by 컬럼명1,...,컬럼명n; -> 오름차순 정렬(A-Z, a-z, 0-9)
+	ex) select emp_name from employees order by emp_name;
+	ex) order by 컬럼명1,...,컬럼명n desc; -> 내림차순 정렬(Z-A, z-a, 9-0)
+	ex) select emp_name from employees order by emp_name desc;
+	DESCendent 내리막(내림차순)
+	ASCendent 오름막(오름차순)
+
+2. Group by 절과 Having 절
+Group by : 특정값을 가진 컬럼끼리 묶는다. (★단, 집계함수와 같이 써야한다.)
+	ex) select + (count/sum/avg/min/max/variance/stddev...)... from ... where ... group by ... order by ...;
+	Having : group by의 결과에 집계함수의 조건을 추가.
+		ex) select manager_id, count(*)from employees group by manager_id having count(*)=8 order by manager_id;
+select 칼럼명n, 집계함수n from [where] group by 칼럼명n having 조건문 [order by]
+
+3. 집합 연산자
+: Data Type이 같은 컬럼끼리만 집합 연산자가 적용된다. 
+Union : 합집합 (공통원소는 한번만 표시), 두 집합의 모든 원소(데이터)를 한번씩 표시
+	union all : 공통원소 모두 표시, 두 집합의 모든 원소를 중복시켜서 표시
+Intersect : 교집합, 두 집합에 공통되는 원소를 표시
+Minus : 차집합, 두 집합 중 기준 집합에만 속한 원소를 표시
+	ex) select ... from A minus select ... from B

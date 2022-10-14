@@ -1,0 +1,49 @@
+오라클 SQL
+1. 
+컬럼명 : 변수명 만드는 방식과 동일함(단, 대소문자구분 없음)
+데이터타입 : 숫자(정수,실수) , 문자(문자열-0개 이상의 문자로 구성), 
+	날짜(거의 사용안함, 문자열을 사용함), LOB(Large Object Block)-음성, 이미지, 영상 보관 >(거의 사용안함)
+
+문자열
+char (character) - 데이터 길이가 최대 길이보다 작으면 빈칸으로 채운다.(고정길이 문자)
+varchar2 - 최대 길이보다 작게, 데이터 길이만큼만 데이터를 할당한다.(가변길이 문자)
+(단, MySQL 에서는 varchar)
+
+숫자(Number)
+- 정수 10
+- 실수 10.1 (floating point number)
+
+Number (전체길이(소수점자리포함), 소수점이하길이)
+ex) number (5,2) > 99.99
+
+날짜
+date
+timestamp
+
+2. 생성
+create table 테이블명 (
+컬럼명1 데이터타입(길이) 제약조건(constraint)-생략가능,
+컬럼명2 데이터타입(길이),
+);
+drop table 테이블명;	// 테이블+데이터 삭제 = schema+data 삭제
+truncate table 테이블명;	// 데이터만 삭제 = data 삭제
+schema (스키마)
+select table_name from user_tables;
+- 테이블명 수정 =>
+	 rename 테이블명 to 새테이블명;
+- 컬럼이름/타입/길이 수정 =>
+	alter table 테이블명 add 새컬럼명 타입(길이);
+	alter table 테이블명 drop column 기존_컬럼명;
+	alter table 테이블명 rename column 컬럼명 to 새컬럼명;
+	alter table 테이블명 modify 기존_컬럼명 새타입(새길이);
+alter table 테이블명 change 컬럼명 새컬럼명 새타입(새길이);	// MySQL은 이 문법을 사용함.
+	ex1) alter table student change mobile phone varchar(12);
+	ex2) alter table student change mobile moblie char(24);
+
+3.
+(명령어)	DML	DDL		DCL(DataControlLanguage)
+	Data	MetaData		grant dba to ora_user <> revoke dba from ora_user
+Create	insert	create		rollback <> commit
+Read	select	select
+Update	update	alter
+Delete	delete	drop/truncate(테이블)

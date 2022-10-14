@@ -1,0 +1,33 @@
+파이썬 머신러닝 판다스 데이터 분석03
+CSV (Comma-Separated Version text file)	.csv
+Excel (Microsoft)	.xlsx
+JSON	.txt
+
+pandas.read_csv('CSV파일이름')
+pandas.read_excel('Excel파일이름')
+pandas.read_json('JSON파일이름')
+pandas.read_html('HTML파일이름'/'URL')
+
+read_csv('csv파일이름' ,sep=문자열(','),
+		header=헤더의 행번호,
+		index_col=행인덱스의 열번호,
+		names=[열이름1,...,열이름n],
+		skiprows=[건너뛸 행 개수],
+		parse_dates=True/False,  #날짜데이터를 datetime 타입으로 변환할지 여부
+		skip_footer=[맨아래 건너뛸 행 개수],
+		encoding=[인코딩문자시스템명]
+)
+read_excel('excel파일이름',engine='openpyxl' <- 확장자:xlsx	> conda install openpyxl
+			        'xlrd' <- 확장자:xls	> conda install xlrd
+			,header=None
+)
+read_html('html파일이름/URL')	>conda install html5lib
+				>conda install lxml
+
+.find => 못찾으면 -1 리턴
+.index => 못찾으면 AttributeError 발생
+
+저장
+.to_csv('csv파일이름(경로)')
+.to_json('json파일이름(경로)')
+.to_excel('excel파일이름(경로)')

@@ -1,0 +1,55 @@
+*개발환경(인프라 개발 : 개발자들의 개발환경을 구성하고 관리)
+*파이썬 개발환경
+아나콘다에서 파이썬의 다양한 라이브러리를 관리하고,( 솔루션에 맞는 데이터 개발자들의 개발환경을 직관적으로 구성)하기 위한
+개발환경 
+
+1. 아나콘다 개발환경 구성
+윈도우 키 > anaconda prompt
+conda create --name newStart python==3.9
+
+2. 개발환경 목록 보기
+conda env list
+
+3. 만들어진 개발환경으로 접속하기
+conda activate newStart
+
+4. 접속한 개발환경의 패키지 목록 보기
+conda list
+
+5. 설치할 패키지
+conda install jupyterlab
+conda install seaborn
+pip install 
+
+6. 주피터 랩 실행
+jupyter lab
+
+2차원 배열
+.loc = row(행)
+.iloc = column(열)
+
+#포토폴리오
+
+springboot(서버) + jsp(view:클라이언트)
+oracle(데이터 저장(테이블형식))
+*금요일까지
+oracle cloud 회원가입
+-신용카드
+오라클 DB를 클라우드에서 사용하여 항상 접속을 하기 위해
+
+머신러닝(주피터랩, 노트북) > 모델링(연산결과) > csv, db저장
+
+1. Pandas - 데이터 2중배열 처리 (1중배열 Series, 2중배열-DataFrame)
+2. sklearn - TreeClassifier
+		   - MLPClassifier
+3. 독립변수 - 독립적인 변수, 영향을 주는 변수 
+   종속변수 - 결과를 출력하는 변수, 영향을 받는 변수
+column이 곧 변수다
+4. trainset
+   testset
+5. 			결과
+예측		F		T
+F		TN		FN
+T		FP		TP
+6. .iloc[행(:),열(:)]
+7. 전역변수 global 변수명

@@ -1,0 +1,69 @@
+오라클SQL
+1. 트랜잭션(Transaction: 거래단위)
+Transaction 시작 (암묵적)
+- SQLPlus/SQL Developer 실행.
+- Commit/Rollback 실행 후.
+
+Transaction 종료 (암묵적)
+- SQLPlus/SQL Developer 종료(Commit)
+- SQLPlus/SQL Developer 비정상 종료(Rollback)
+	=> 정전, 윈도우비정상종료 등.
+
+Transaction에 포함되지 않는 SQL문 - rollback이 적용되지 않음.
+=> DDL문 (Create/Drop/Alter/Truncate/Grant/Revoke)
+
+1) Savepoint
+savepoint 세이브포인트명(레이블);
+rollback to 세이브포인트명(레이블);
+
+2. 예외처리
+1) 예외처리 구문
+declare
+
+begin
+	실행문;
+	exception when 예외종류 then 실행문;
+	when 예외종류2 then 실행문2;
+	...
+	when others then 실행문n;
+end;
+
+[에러 종류]
+IndexOutOfBound
+Didvided by zero
+NullPointer
+Others
+
+ex)
+declare
+vi_num number := 0;
+
+begin
+vi_num := 10/0;
+dbms_output.put_line('success');
+
+exception when others then
+dbms_output.put_line('오류발생 - Divided by Zeor');
+
+end;
+
+2) SQlCODE, SQLERRM을 이용한 예외정보 참조
+ex)
+dbms_output.put_line('SQL error code [' || sqlcode || ']');
+dbms_output.put_line('error message [' || sqlerrm || ']');
+
+3) 사용자 정의 예외
+declare
+	myExcept exception;	// user-defined exception
+begin
+...
+if ~ then
+	raise myExcept;
+end if;
+...
+exception when ... then
+실행문;
+when myExcept then
+실행문;
+
+end;

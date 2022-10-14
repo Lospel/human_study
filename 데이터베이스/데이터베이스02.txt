@@ -1,0 +1,66 @@
+오라클 SQL
+
+1. 추가
+insert into 테이블명 values(값1,....,값n); -> 기존의 테이블에서 컬럼을 정의한 순서대로 작성해야한다.
+insert into 테이블명(컬럼명1,...,컬럼명n) values(값1,...,값n); -> 컬럼명을 작성한 순서대로 임의로 값을 추가할 수 있음.
+insert into 테이블명 set 컬럼명1=값1,...,컬럼명n=값n; -> MySQL에서만 사용가능.
+
+2. 삭제
+delete from 테이블명 where 조건문(컬럼명1=값1); [컬럼명 비교연산자 값] -> where 뒤에 조건문이 옴.
+	ex) delete from student where name='John'; -> 조건문이 없으면 테이블이 전부 삭제됨.
+
+3. 수정
+update 테이블명 set 컬럼명1=값1,....,컬럼명n=값n where 조건문; [컬럼명 비교연산자 값]
+	 -> 조건문이 없으면 컬럼명 값이 전부 수정됨.
+	ex) update student set gender='M' where gender is null; -> null은 예외적으로 is를 붙여서 사용한다. (값이 없음)
+	ex) update student set gender='M' where gender is not null;
+
+4. 조회, 검색
+select 컬럼명1,...,컬럼명n from 테이블명1,...,테이블명n;
+	ex) select * from student; -> *(All)은 테이블의 모든 컬럼을 의미함.
+	ex) select name,gender,birthday,mobile,area,english,math,korean from student;
+
+5. 복사
+create table 테이블명2 as select* from 테이블명1 
+create table 테이블명2 select*from 테이블명1 -> MySQL 문법.
+
+6. 뷰(view) 
+: 복잡한 조건의 select문이 반복적으로 사용될 때, 번거로움을 줄이기 위해서 사용함.
+create view 뷰이름 as select 컬럼명1,..., 컬럼명n from 테이블명1,...,테이블n where 조건문;
+	ex) create view worker as select emp_name, salary from employees 
+			where hire_date >'20/12/31' and salary <= 10000; 
+create or replace view 뷰이름 as select 컬럼명1,..., 컬럼명n from 테이블명1,...,테이블n where 조건문;
+	ex) create or replace view worker as select emp_name, salary from employees; -> 있으면 고치고, 없으면 만듦.
+drop view 뷰이름; -> 만들어진 view 삭제.
+select view_name from user_views; -> 만들어진 view들을 확인.
+
+7. 인덱스(index)
+: Data의 검색속도를 향상 시키기 위해서 사용함.
+create [or replace] index 인덱스명 on 테이블명(컬럼명1,...,컴럼명n);
+	ex) create or replace index ndx_name on student(name); -> 10만개 이상의 데이터가 있을 경우 효과적.
+drop index 인덱스명;
+select index_name(or *) from user_indexes; -> 만들어진 index들을 확인.
+
+8. 시노님(동의어/별명)(synonym) -> 거의 안씀.
+: 데이터테이블의 별명 붙여주기.
+create [or replace] synonym 별명 for 테이블명;
+drop synonym 별명;
+
+9. 시퀀스(sequence) -> MySQL은 시퀀스가 없다.
+: 일련번호 자동 생성기. (number generator)
+create sequence 시퀀스명; -> 초기값 1 증감분1 (start with 1 increment by 1)
+시퀀스명.nextval -> 새 시퀀스번호 가져오기. (단, nextval은 쓰는 순간 증감하기 때문에 주의)
+	(즉, 사용될때마다 증가한다.)
+select 시퀀스명.currval from dual; -> 마지막 시퀀스 번호 확인.
+	ex) create sequence seg_mid start with 1 incerement by1 minvalue 1 maxvalue 100 cycle;
+
+table index view synonym sequence 
+
+function procedure package
+
+	ex) MySQL
+	create table student (
+		mid number auto_increment,
+		name varchar(12)
+	);
+	insert into student set name='John';

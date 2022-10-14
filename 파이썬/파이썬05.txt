@@ -1,0 +1,151 @@
+-전역변수화(지역변수를 전역변수화) : global 매개변수n
+ex)
+def f1(x):
+  global n
+  n=4
+
+n=10
+f1(n)
+print(n) -> n=4
+
+-optional parameter
+ex)
+def f1(a=10, b=9, c=8):
+  ~
+
+f1() = f1(10, 9, 8)
+f1(5,3) = f1(5,3,8)
+f1(5,3,4) = f1(5,3,4)
+f1(4) = f1(4,9,8)
+
+ex2)
+def f1(a, b=4, c=2):
+  ~
+
+f1(10) = f1(10,4,2)
+f1(10,3) = f1(10,3,2)
+f1() = 오류.
+f1(10, ,1) = 오류
+f1(10,3,) = 오류
+
+파이썬 머신러닝 판다스 데이터 분석01
+-web crawling :인터넷을 돌아다니면서 데이터  수집
+-scraping : 스크랩
+
+-Beautifulsoup (아름다운 스프) : 웹문서(html) 분석.
+설치폴더: python설치폴더\Scripts
+cmd = pip install beautifulsoup4
+파이썬 다시 키고: from bs4 import BeautifulSoup as bs
+b1=bs()
+
+-머신러닝(Machine Learning)
+-딥러닝(Deep Learning)
+
+-리스트*n => n번 반복된 데이터가 리스트로 생성.(반복횟수n만큼의 길이로 연장)
+-넘파이(numpy)배열*n => 각 값에 n을 곱한 결과가 나온다.(길이불변)
+
+-리스트=문자열
+np.ones(배열, dtype=int)
+np.ones_like(리스트, dtype=int)
+np.zeros()
+np.zeros_like()
+np.empty()
+np.empty_like()
+np.identity(차원수, dtype=int/float)
+np.eye(row_num, col_num, k=시작인덱스, dtype=int/float)
+
+range(시작값, 끝값+1, 증감) <일반 파이썬>
+np.arange(시작값, 끝값+1, step=스텝값) <numpy 파이썬>
+np.linspace(시작값, 끝값, num=n, endpoint=True/False, retstep=True/False)
+	num=표시할 개수
+	endpoint=True : 끝값포함
+	retstep=True : 간격 표시
+	e+02 == 10^2
+★딥러닝
+배열[시작인덱스:끝인덱스-1:간격] => a=np.array([1,...,12]), print(a[0:8:3]) -> [1 4 7]
+
+ex)
+b=np.array([ [  [1,2], [3,4] ], [  [5,6], [7,8] ], [  [9,10], [11,12] ]])
+=>
+[
+  [  [1,2], [3,4] ],
+  [  [5,6], [7,8] ],
+  [  [9,10], [11,12] ]
+]
+.ndim <- 차원수 
+b.ndim => 3
+
+a=np.ones((2,2), dtype=int)	<- 다차원 배열, 크기지정 & 초기화
+print(a)
+=>
+[[1 1]
+ [1 1]]
+
+b=np.ones_like(x, dtype=int) => 1
+b=[1,1,1,1,1]
+b=np.zeros_like => <function zeros_like at 0x7faac69389e0>
+
+a=np.identity(10, dtype=int)
+=>
+[[1 0 0 0 0 0 0 0 0 0]
+ [0 1 0 0 0 0 0 0 0 0]
+ [0 0 1 0 0 0 0 0 0 0]
+ [0 0 0 1 0 0 0 0 0 0]
+ [0 0 0 0 1 0 0 0 0 0]
+ [0 0 0 0 0 1 0 0 0 0]
+ [0 0 0 0 0 0 1 0 0 0]
+ [0 0 0 0 0 0 0 1 0 0]
+ [0 0 0 0 0 0 0 0 1 0]
+ [0 0 0 0 0 0 0 0 0 1]]
+
+b=np.eye(7,7,k=2,dtype=int) # k>=0: 우하로 진행, 시작row는 첫줄 k<0: 거꾸로 인덱스, 좌상으로 진행, 시작 row는 맨아랫줄
+=>
+[[0 0 1 0 0 0 0]
+ [0 0 0 1 0 0 0]
+ [0 0 0 0 1 0 0]
+ [0 0 0 0 0 1 0]
+ [0 0 0 0 0 0 1]
+ [0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0]]
+
+print( np.linspace(0,10, num=5, endpoint=True, retstep=True) )
+=>
+(array([ 0. ,  2.5,  5. ,  7.5, 10. ]), 2.5)
+print(np.linspace(0,10, num=5, endpoint=False, retstep=True))
+=>
+(array([0., 2., 4., 6., 8.]), 2.0)
+print(np.linspace(0,10, num=5, endpoint=False, retstep=False))
+=>
+[0. 2. 4. 6. 8.]
+
+a=np.array([
+  [1,2,3],
+  [4,5,6],
+  [7,8,9]
+])
+print(a[:, 1:]) -> 1차 배열(0~끝), 2차 배열(1~끝)
+=>  
+[[2 3]
+ [5 6]
+ [8 9]]
+
+a=np.array([
+[[1,2,3,4,5], [6,7,8,9,10], [11,12,13,14,15]],
+....[21~],
+....[41~],
+....[61~],
+])
+
+a[1:3, :, 2:] -> 1차 배열(1~2), 2차 배열(0~끝), 3차 배열(2~끝)
+=> 
+[
+  [[23 24 25] [28 29 30] [30 34 35]]
+  [[43~]]
+]
+
+a[1:3, 1: , 2:] -> 1차 배열(1~2까지), 2차 배열(1에서 끝까지), 3차 배열(2에서 끝까지)
+=>
+[
+  [[28,29,30], [33,34,35]]
+  [[48~]]
+]

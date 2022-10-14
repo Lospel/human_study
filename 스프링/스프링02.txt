@@ -1,0 +1,160 @@
+쿠키(cookie):
+개인정보, 로컬파일(문자열), 웹브라우저, 클라이언트측, Javascript 서버프로그램, 최장365일(영구)
+세션(session):
+개인정보, 
+
+Session
+- HttpServletRequest가 먼저 선언되어있어야 Session변수를 사용할 수 있다.
+	HttpServletRequest req
+- Session 설정
+	Session session = req.getSession();
+- Session에 변수 생성 (setter)
+	session.setAttribute(세션변수명, 값);
+- Session 변수값 가져오기 (getter)
+	변수 = session.getAttribute(세션변수명);
+	
+ex)
+@Data	
+public class Student {
+	String name;
+	String gender;
+	String mobile;
+}
+
+@Controller
+public class myController {
+
+	@RequestMapping("/")
+	public String root(Model model) {
+		ArrayList <Student> arStudent = new ArrayList<Student>();
+		Student s1 = new Student();
+		s1.setName("John");
+		s1.setGender("Male");
+		s1.setMobile("44445555");
+		Student s2 = new Student();
+		s2.setName("Jane");
+		s2.setGender("Female");
+		s2.setMobile("23234343");
+		Student s3 = new Student();
+		s3.setName("Jacob");
+		s3.setGender("Male");
+		s3.setMobile("77778888");
+		
+		arStudent.add(s1);
+		arStudent.add(s2);
+		arStudent.add(s3);
+
+		model.addAttribute("student",arStudent);
+		return "viewStudent";
+		
+	}
+}
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>viewStudent</title>
+</head>
+<body>
+<table border=1>
+<c:forEach var="person" items="${student }">
+<tr>
+<td>${person.name }</td>
+<c:if test="${person.gender eq 'Female' }">
+	<td><font color=red>${person.gender }</font>
+	</td>
+</c:if>
+<c:if test="${person.gender eq 'Male' }">
+	<td><font color=blue>${person.gender }</font>
+	</td>
+</c:if>
+<td>${person.mobile }</td>
+</tr>
+</c:forEach>
+</table>
+</body>
+</html>
+
+ArrayList에 데이터를 넣고 jsp에서 그 데이터를 표시.
+
+<c:forEach var="로컬변수명" items="${모델변수명}">
+	<tr><td>${로컬변수명.멤버변수명}</td></tr>
+</c:forEach>
+<c:if test="${모델변수명 연산자 상수/변수}">		eq(==), ne(!=), gt(>), lt(<), ge(>=), le(<=)
+</c:if>
+
+- MyUserDAO.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="DAO(inerface)의 경로+파일명">
+	<select id="DAO의 메소드명" resultType="DTO(class)의 경로+파일명">
+		select 컬럼명n from SQL문
+	</select>
+	<insert id="DAO의 메소드명">
+		insert SQL문 #{param1},...,#{paramN}
+	</insert>
+	<update id="DAO의 메소드명">
+		update SQL문 #{param1},...,#{paramN}
+	</update>
+	<delete id="DAO의 메소드명">
+		delete SQL문 #{param1},...,#{paramN}
+	</delete>
+</mapper>
+
+@Mapper
+public interface DAO이름 {
+	ArrayList <DTO이름> 메소드명();
+	void 메소드명(param1,...,paramN)
+}
+@Data
+public class DTO이름 {
+	private 데이터타입 컬럼명1;
+	private 데이터타입 컬럼명2;
+	private 데이터타입 컬럼명n;
+}
+
+- application.properties에 DB관련 설정
+- bundle.gradle에 JSP관련 설정
+- webapp/WEB-INF/views 폴더 생성
+- Controller 생성
+- DAO, DTO 보관할 package 생성 (com.study.springboot.jdbc)
+- JDBC jar 파일을 Build Path -> Configure Build Path -> add External JARs 이용해서 저장
+- src/main/resources 폴더 아래에 package 추가 for mapp XML
+- mapper XML 생성
+
+AJAX 호출하는 코드 (post, get 방식)
+$.post('URL(RequestMapping)',{서버에 보내는 입력},function(서버로부터 받은 출력){},'json or text or xml 수신데이터포맷');
+$.get('URL(RequestMapping)',{서버에 보내는 입력},function(서버로부터 받은 출력){},'json or text or xml 수신데이터포맷');
+
+ex)
+- web page(order.jsp)가 로드되면 메뉴리스트가 화면에 표시(ajax) VV
+- selMenu option을 click하면, 메뉴명/가격이 표시되고, 수량은 1잔으로 표시 VV
+- 수량을 변경(qty에 change 발생)하면, 가격*수량이 가격(price)에 표시*** VV
+- 주문(btnOrder)을 click하면, VV
+	(1) "메뉴이름, 수량, 가격'이 selOrder에 표시
+	(2) 메뉴, 수량, 가격이 지워진다
+	(3) 총금액에 selOrder안에 것들의 가격 총액이 표시된다
+- 비우기(btnEmpty)를 click하면 메뉴/수량/가격이 지워진다. VV
+ex2)
+.on('click','#btnOrder', function(){
+	if(!$('#name').val()){
+		alert('주문할 메뉴를 선택하십시오.');
+		return false;
+	}
+	// select문
+	let a ='<option>'+ $('#name').val()+', '+$('#qty').val()+', '+$('#price').val()+'</option>' 
+	$('#selOrder').append(a);
+	let tol = 0;
+	$('#selOrder option').each(function(){ // select문의 각각의 <option> 안에 있는 파일만 클릭됨
+		let optstr = $(this).text(); // 값만 optstr안에 들어감 ['3, Cafe Mocca, 3400']
+		let ar = optstr.split(','); // ['3', ' Cafe Mocca', ' 3400']
+		tol = tol + parseInt(ar[2]);
+	})
+	$('#btnEmpty').trigger('click'); //#btnEmpty id에 click이라는 기능을 재실행함.
+	$('#total').val(tol); // #total의 값에 tol을 넣기.
+	return false;
+})

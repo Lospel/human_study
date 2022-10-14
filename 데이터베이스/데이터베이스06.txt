@@ -1,0 +1,75 @@
+오라클 SQL
+1. 조인(Join)
+: 2개 이상의 table을 where조건으로 연계. 새로운 검색 결과를 출력. (데이터의 일관성, 무결성 등을 지키기 위해서 사용)
+	ex) select A.name, A.mobile, B.phone, B.area from A, B; -> 카타시안 조인(Catasian Join)
+	-> A1=B1,B2,B3 , A2=B1,B2,B3 , A3=B1,B2,B3 ...
+	ex) select A.name, A.mobile, B.phone, B.area from A, B where A.mobile=B.phone;
+	-> A1=B1, A2=B2, A3=B3 ...
+	ex) select employees.department_id, employees.employee_id, employees.emp_name, departments.department_name from employees, departments 
+	where employees.department_id=departments.department_id;
+	== select a.department_id, a.employee_id, a.emp_name, b.department_name from employees a, departments b
+	where a.department_id=b.department_id; 
+	(nick, alies 개념 => as 생략 가능)
+
+Normalization(정형화) : 데이터를 여러 개의 테이블로 나누는 것(모델링)
+	-> 작업량 감소.(insert,update,delete)
+
+★ 기본키(Primary key) : 1) not null 2) unique(중복X) 
+	ex) 주민번호, 전화번호 등
+	ex) create table student ( ... mobile varchar(12) primary key,...);
+★ 외래키(Foreign key) : 다른 테이블의 기본키를 검색용으로 사용하는 것.
+
+2. 내부조인과 외부조인
+내부조인(Inner Join)
+	동등조인(Equi) =
+		ex) select employees.employee_id, employees.emp_name, departments.department_name 
+		from employees, departments where employees.department_id = departments.department_id
+		(단, 조건에서 맞지 않는 자료들은 생략된다. 즉, A에는 있어도 B에 없는 자료는 생략된다.)
+	세미조인(Semi) in, between, <, >
+	안티조인(Anti) !=
+	셀프조인(Self) from A, A : 같은 테이블을 조인. (난이도 상) == recursive
+		ex) SELECT a.employee_id, a.emp_name, b.emp_name manager_name
+		FROM employees a, employees b
+		where a.manager_id = b.employee_id;
+		(테이블을 2개로 만들어서 조인하는걸로 이해하면 쉽다.)
+
+외부조인(Outer Join)
+: 내부조인의 내용 중에서 기준 테이블에 null 값을 나타내고 싶을 경우 사용 => (+) -> 오라클 SQL 문법
+	Left outer join
+		ex) select *
+		from A(기준테이블), B
+		where A.c2 = B.c3(+);
+	Right outer join
+		ex) select *
+		from A, B
+		where A.c2(+) = B.c3;
+	Full outer join
+		ex) select ~
+		from A full outer join B
+		on A.c2=B.c3
+MySQL(ANSI style) -> Left outer join
+			ex) select ~ 
+			from A left outer join B 
+			on A.c2=B.c3;
+		Right outer join
+			ex) select ~
+			from A right outer join B
+			on A.c2=B.c3;
+		Full outer join
+			ex) select ~
+			from A full outer join B
+			on A.c2=B.c3
+
+3. 서브쿼리(sub-query) -> 복잡한 sql문일수록 서브쿼리를 활용하면 처리 속도가 빨라진다.
+: SQL문 안에 하나 이상의 sql문이 들어있는 경우.
+	select 일반서브쿼리
+	from 인라인 뷰(inline view)
+		ex) Select a.employee_id, a.emp_name, a.salary, b.department_name
+		From (select * from employees where salary between 5000 and 10000) a, departments b
+		Where a.department_id = b.department_id
+	where (select * from...) 중첩 쿼리
+		ex) Select count(*)
+		From employees
+		Where salary >= (select avg(salary) from employees);
+
+		

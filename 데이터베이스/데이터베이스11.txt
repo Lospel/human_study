@@ -1,0 +1,142 @@
+오라클SQL
+1. 커서(cursor)
+: SQL 실행결과(select)가 저장된 메모리의 특별한 영역.
+묵시적 커서(Implicit cursor) : 자동으로 생성되는 커서
+명시적 커서(Explicit cursor) : PL/SQL 코드에 의해서 의도적으로 만든 커서
+
+ex)
+create table Member (
+	name varchar2(80),
+	mobile varchar2(32)
+);
+select <rownum, rowid,> name, mobile from member;
+
+1) 묵시적 커서 속성
+SQL%FOUND : select 결과로 1개 이상이 조회되면 TRUE, 없으면 FALSE
+SQL%NOTFOUND : select 결과로 없으면 TRUE, 1개 이상이 조회됐으면 FALSE
+SQL%ROWCOUNT : select 결과의 레코드(row) 갯수
+SQL%ISOPEN 
+
+2) 명시적 커서
+- 커서 선언(declare)
+- 커서 오픈(open)
+- 커서에 저장된 데이터 사용(fetch)
+- 커서 닫기(close)
+
+ex) 
+declare
+vs_name employees.emp_name%TYPE;
+
+cursor c1 (a number, b number) -- (1) 커서 선언
+is
+    select emp_name from employees where salary between a and b;
+    
+begin
+    open c1 (0, 3000); -- (2) 커서 열기(sql실행)
+
+    loop
+    fetch c1 into vs_name; -- (3) 데이터 사용하기(fetch)
+    exit when c1%notfound;
+    dbms_output.put_line(vs_name);
+    end loop;
+
+    close c1; -- (4) 커서 닫기(메모리 반환)
+end;
+/
+ex2)
+-- 부서명, 부서별 인원수, 부서직원의 월급합계
+declare
+vs_name departments.department_name%TYPE;
+cnt number;
+sum_salary number;
+
+cursor c1
+is
+select b.department_name, count(*), sum(a.salary) 
+from employees a, departments b 
+where a.department_id = b.department_id 
+group by b.department_name
+order by sum(a.salary);
+
+begin
+    open c1;
+    loop
+    fetch c1 into vs_name, cnt, sum_salary;
+    exit when c1%notfound;
+    dbms_output.put_line('부서명 : ' || vs_name || ', 부서별 인원수 : ' || cnt || '명, 월급합계 : ' || sum_salary || '$');
+    end loop;
+    close c1;
+end;
+/
+
+for 변수 in 커서명(매개변수n) 
+loop
+	실행문;
+end loop;
+
+★ ex3)
+declare
+cursor c1 (x number)
+is
+select emp_name, department_id
+from employees
+where manager_id = x;
+
+begin
+for rec in c1(100)
+loop
+dbms_output.put_line(rec.emp_name || ', ' || rec.department_id);
+end loop;
+end;
+
+ex4)
+DECLARE
+cursor c1
+is
+select a.emp_name, sum(b.amount_sold) as total
+from employees a, sales b
+where a.employee_id = b.employee_id
+GROUP by a.emp_name
+order by total;
+
+begin
+for rec in c1
+loop
+dbms_output.put_line('직원명 : ' || rec.emp_name || ', 매출총액 : ' || rec.total || '$');
+end loop;
+end;
+/
+
+ex5)
+declare
+begin
+for rec in ( 
+select emp_name, department_id
+from employees
+where manager_id=100)
+
+loop
+dbms_output.put_line(rec.emp_name || ', ' || rec.department_id);
+end loop;
+end;
+
+ex6)
+DECLARE
+
+begin
+
+for rec in (
+select a.emp_name, sum(b.amount_sold) as total
+from employees a, sales b
+where a.employee_id = b.employee_id
+GROUP by a.emp_name
+order by total)
+
+loop
+dbms_output.put_line('직원명 : ' || rec.emp_name || ', 매출총액 : ' || rec.total || '$');
+end loop;
+
+end;
+/
+
+

@@ -1,0 +1,133 @@
+Python code 실행방법
+1. IDLE에서 한문장씩 실행 & 확인
+2. 파일안에 코딩해서 한번에 실행(실제현장작업)
+
+연산자
+- 산술 연산자: +, -, *, /, **(거듭제곱), %(나머지), //(몫), =, +=, -=, /=, %=, //=
+	+: 양쪽이 문자열이면 연결연산자로 동작(숫자는 문자열로 변환 str(숫자)) 
+	-> 파이썬은 양쪽이 동일한 형태여야 연결연산자가 작동한다.
+	없는 연산자: ++, -- 
+
+- 비교 연산자: ==, !=, >, >=, <, <=, is None, is not None, ==None, !=None
+- 논리 연산자: and, or, not
+Null이 없고, 대신 None 사용
+# 파이썬의 키워드(keyword)는 소문자로만 쓴다.
+# 상수: None, True, False 는 대문자로 시작.
+
+print() : format(), %값
+ex)
+a=10
+b=5
+print("Hello World", end=' ') # System.out.println("Hello Wordl")
+print("Good Morning Vietnam\n\t")
+print("사과값은 {}이고, 포도값은 {}입니다.".format(a,b))
+print("사과값은 {1}이고, 포도값은 {0}입니다.".format(a,b)) -> 0=a, 1=b -> 사과값은 b 이고 포도값은 a이다.
+print('사과값은 %d이고, 포도값은 %d입니다.'%(a,b))
+print(r"Good Morning Vietnam\n\n\t") # raw character => 특수문자가 그대로 값으로 나옴.
+★print(f"사과값은 {a}이고, 포도값은 {b}입니다.")
+★print(f"사과값은 {a}이고, 포도값은 {a*b}입니다.")
+
+비실행문
+# ~ 
+''' ~ '''
+
+★ indentation(들여쓰기)가 필수 (2, 4칸 들여쓰기)
+
+ex)
+if 조건: 
+  실행문1
+  실행문2
+  ~
+  실행문n
+else:
+  실행문n
+
+ex2)
+if 조건:
+  실행문n
+elif 조건2:
+  실행문n
+else:
+  실행문n/pass(생략)
+
+String input(설명/가이드)
+ex) 
+name=input("이름을 입력하시오\n")
+John
+name -> 'John'
+
+ex2)
+n=input("주문할 수량을 입력하시오\n)
+7
+n -> '7' (문자열) -> n=int(n) -> 7(숫자형)
+n=int(input('수량'))
+7
+n -> 7 (숫자)
+
+ex3) .isnumeric() == 숫자가 맞다면.
+a=input('a값을 입력하시오.\n')
+b=input('b값을 입력하시오.\n')
+if a.isnumeric():
+    a=int(a)
+elif b.isnumeric():
+    b=int(b)
+else :
+    print('숫자만 입력 가능합니다.')
+if int(a) > int(b) :
+    print('a값이 b보다 크다.')
+elif int(b) > int(a) :
+    print('b값이 a보다 크다')
+else :
+    print("a값과 b값이 동일하다.")
+print('프로그램을 종료합니다.')
+
+반복문
+while 조건:
+  실행문1
+  ~
+  실행문n
+  continue/break	# 속한 가장 안쪽 반복문을 continue/탈출.
+
+ex)
+i=0
+while i < 10:
+    print(f"i [{i}]")
+    j=0
+    while j<5 :
+        if j>3:
+            break
+        print(f'i [{i}] j [{j}]')
+        j+=1
+    i+=1
+print('Program terminated.')
+
+for 변수 in 리스트/튜플/딕셔너리/셋(세트):		vs (자바) for(초기화; 조건문; 후처리)
+  실행문1
+  ~
+  실행문n
+  continue/break
+
+range(시작값, 종료값-1, 증감)
+range(종료값-1) = range(0, 종료값-1)
+range(시작값, 종료값-1) = range(시작값, 종료값-1, 1)
+
+ex)
+a=0
+for i in range(1,101,1):
+    a += i
+print(f"total = {a} 입니다.")
+
+switch/ do~while 없음
+
+ex2)
+for i in range(2,10,1):
+    for j in range(1,10,1):
+        print(f'{i} X {j} = {i*j}')
+i=2
+while i < 10:
+    j=1
+    while j < 10:
+        print(f'{i} X {j} = {i*j}')
+        j+=1
+    i+=1
+

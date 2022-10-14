@@ -1,0 +1,15 @@
+let 변수명 = setTimeout(함수,MilliSeconds) - 일정시간 후에 한번 실행
+clearTimeout(변수명)
+let 변수명 = setInterval(함수,MilliSeconds) - 일정시간마다 주기적으로 반복 실행
+clearInterval(변수명)
+
+- $('#start').val(), $('#end').val() => YYYY-MM-DD
+- javascript에서 YYYY-MM-DD를 YYYYMMDD로 변환
+$.post(url,{start:
+
+20221007 = req.getParameter("start")
+
+select menu, qty, price, created from sold_list where substr(created,1,8) between #{param1} and #{param2}
+	order by created desc
+
+select sum(price) from sold_list where substr(created,1,8) between #{param1} and #{param2}

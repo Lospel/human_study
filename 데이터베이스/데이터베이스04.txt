@@ -1,0 +1,56 @@
+오라클 SQL
+1. 숫자 함수
+// ABS(n) : 절대값.
+Ceil(n) : 올림
+Floor(n) : 내림
+// Round(n) : 반올림
+// Trunc(n1,n2) : n1 값의 소수점 n2 자리수를 자름.
+Power(n2,n1) : n2를 n1제곱.
+Sqrt(n) : 제곱근 
+	ex) sqrt(16) => 4
+Mod(n2, n1) : n2/n1 나머지
+Remainder(n2, n1) : n2/n1을 초과한 나머지
+	ex) 19/4 => -1
+
+2. 문자 함수
+Initcap(문자) : 첫 문자는 대문자로, 나머지는 소문자로.
+Lower() : 소문자로.
+Upper() : 대문자로.
+Concat(n1, n2) : || (문자열연결 연산자)와 비슷함. -> 실제로는 복잡하여 거의 안씀.
+	ex) select concat(concat('Good ', 'Moring '),'Vietnam') from dual;
+★ Substr(문자열/컬럼명, 시작인덱스, 길이(생략가능)) : substring(부분문자열) -> Java, Javascript 는 0부터 시작이지만 SQL문은 1부터 시작.
+	ex) substr('Good Morning',1,4) => Good
+	ex) substr('Good Morning',-7) => Morning
+★ Instr(source, target) : 어떤 문자열이 어디서부터(인덱스) 나타나는지 찾기, 못찾으면 0
+	ex) instr('Good Morning','Morning') => 6
+	ex) select emp_name as full_name, instr(emp_name,' ') as blank,
+	substr(emp_name,1,instr(emp_name,' ')-1) as first_name from employees;
+Ltrim(문자) : 문자열의 왼쪽끝 공백을 제거
+Rtrim() : 문자열의 오른쪽끝 공백을 제거
+Lpad(문자열/컬럼명, 전체길이(n), 채울 문자열) : n자리만큼 왼쪽부터 문자를 채움
+Rpad(문자열/컬럼명, 전체길이(n), 채울 문자열) : n자리만큼 오른쪽부터 문자를 채움
+★ replace(문자열/칼럼명, 대상문자열/대상칼럼명, 목표문자열/목표칼럼명) : 문자열에서 부분문자열을 다른 문자열로 대치한다.
+	ex) select replace(phone_number,'.','-') from employees;
+length(문자열/컬럼명) : 문자열 길이 구하기
+	ex) select emp_name, length(emp_name) from employees;
+lengthb() : 문자열 길이를 바이트로 구하기
+
+3. 날짜 함수
+sysdate : 오늘 날짜
+systimestamp : 현재 시각
+★ to_char(숫자/날짜) => 문자열
+	ex) select to_char(sysdate,'YYYY-MM-DD HH:MI:SS') from dual; => 2022-09-08 11:23:14
+★ to_number(문자열/날찌) => 숫자
+★ Nvl(칼럼명, 칼럼과 같은 타입의 값) : 칼럼값이 null 아니면, 그 칼럼값 출력하고. 칼럼값이 null이면 대신 '값'을 출력.
+	ifnull(값1, 값2) -> MySQL 문법과 같은 의미.
+Nvl2(칼럼명, 값1, 값2) : 칼럼값이 null이면 값1 출력, 칼럼값이 null아니면 값2 출력.
+	null * 100 = null + 100 = null
+Coalesce(매개변수들) : 왼쪽매개변수부터 검사해서 null이 아닌 최초의 매개변수만 출력.
+	ex) select coalesce(commission_pct*salary,salary) from employees;
+Nullif(값1,값2) : 값1 == 값2 이면 null 출력, 값1 <> 값2 이면, 값1 출력
+	ex) nvl(nullif(값1,값2),'-')
+
+4. 기타 함수
+★ Decode(칼럼명/표현식,값1,출력1,값2,출력2,...,값n,출력n)
+Greatest() : 가장 큰 값
+Least() : 가장 작은 값

@@ -1,0 +1,182 @@
+Bean(콩)
+Java - 자바커피
+Java Bean - Class
+
+POM.XML - 라이브러리의 위치지정(자동다운로드)
+Servlet-context.xml - 환경설정(웹서버)
+web.xml - 환경설정(클라이언트)
+경로명, 데이터베이스 설정
+
+Spring Boot Add-ons (Plug-in)
+
+STS (Spring Tool Suite) 4.0 <- Spring Boot Suite
+
+Java = Java(JRE-JVM) Development(library) Kit(API)
+
+Project -> Spring Boot -> Spring Starter Project
+
+MVC = Model (Data transfer from Controller to View by Model Class)
+	View (UI by JSP, HTML)
+	Controller (Logic by Java)
+
+(1) JSP/HTML 제작
+(2) Controller에 URL 경로, 화면에 표시될 JSP/HTML파일이름
+
+@RequestMapping("/경로")
+public String method1(){
+...
+return "JSP/HTML파일이름";
+}
+
+Model 사용법
+(1) 메소드(함수)의 매개변수로서 선언
+public Stirng method1(Model model){
+}
+
+(2) 모델 인스턴스에 값을 싣는다.
+model.addAttribute("변수명1","값");
+model.addAttribute("변수명2","값");
+
+(3) JSP파일이름을 리턴
+return"JSP파일이름";
+
+JSP에서 Model data 받는법
+(1) JSP파일 윗부분에 다음을 반드시 선언.
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+(2) 코딩에서 다음의 형식으로 모델변수를 표시
+${변수명}
+
+ModelAndView 사용법
+(1) 메소드의 반환값으로 선언, 매개변수 사용안함
+public ModelAndView method1(){
+	ModelAndView mv = new ModelAndView();
+}
+(2) 값을 싣는다.
+mv.addObject("변수명1","값");
+mv.addObject("변수명2","값");
+
+(3) JSP파일이름을 싣는다.
+mv.setViewName("JSP파일이름");
+
+(4) ModelAndView를 리턴
+return ModelAndView이름;
+
+client -> Web Server 데이터전송
+(1) <form>태그 in HTML
+(2) QueryString(URL+data)에 실어보낸다.
+(3) AJAX호출
+
+return "redirect:/URL";  // 해당하는 RequestMapping으로 점프. 현재 메소드 중단.
+
+<!-- ★
+@RequestMapping("/URL")
+public String method1(HttpServletRequest req,...) {
+	String _name = req.getParameter("name")
+}
+==
+@RequestMapping("/URL")
+public String method1(@RequestParam("name") String _name,...) {
+}
+==
+@RequestMapping("/URL")
+public String method1(Member member,...) {
+	member.name
+} 
+==
+@RequestMapping("/userCheck/{loginid}/{passcode}")
+public String method1(@PathVariable String loginid, @PathVariable String passcode, Model model){
+}
+-->
+
+class Member{
+	string name;	// form 태그안의 이름과 일치시켜야 한다.
+}
+
+<form id=frmLogin method="get" action="/userCheck">
+<input type=text name=loginid id=loginid><br>
+<input type=password name=passcode id=passcode><br>
+<input type=submit id=btnSubmit name=btnSubmit value='전송'>
+</form>
+<script>
+$(document).on('submit1','#frmLogin',function(){
+	....
+	ex): document.location='/userCheck/'+$('#loginid').val();
+	[return true;] // form 태그의 실행을 "계속하라"
+	return false;  // form 태그의 실행을 "중단하라"
+})
+/userCheck?loginid=xxxxxx&passcode=yyyyyy
+/userCheck/xaexal <- ex)
+
+$(document).on('click','#btnSubmit',function(){
+	if(){
+		$('#frmLogin').submit();
+		}else{
+			return false;
+		}
+})
+
+<input type=text id=loginid><br>
+<input type=password id=passcode><br>
+<input type=button id=btnGo value='전송'>
+...
+</body>
+<script src='...code.jquery.com/... .js'>
+</script>
+<script>
+$(document).on('click','#btnGo',function(){
+// 유효성검사
+if(){
+	let url='https://localhost:8081/userCheck?loginid='+$('#loginid').value+'&passcode='+$('#passcode');
+	document.location=url;
+	// let url='https://localhost:8081/userCheck/'+$('#loginid').val()+'/'+$('#passcode')+
+}else{
+}
+})
+</script>
+
+- Validator 사용법
+(1) Validator 인터페이스의 구현클래스를 만든다.
+	public class ContentValidator implements Validator {
+		@Override
+		public boolean supports(){Class<?> clazz) {
+			return 커맨드객체.class.isAssignableFrom(clazz);
+	}
+		@Override
+		public void validate(){
+			// 유효성검사 코드
+			errors.rejectValue("커맨드객체의 필드명","에러메세지");
+		}
+	}
+(2) Controller에서 호출
+		ContentValidator validator = new ContentValidator();
+		validator.validate(contentDto, result);
+		if(result.hasErrors()) {
+			page = "커맨드객체";
+		}
+		return page;
+	}
+	
+- ValidationUtils 사용법
+(1) Validator 인터페이스의 구현클래스를 만든다.
+	public class ContentValidator implements Validator {
+		@Override
+		public boolean supports(){Class<?> clazz) {
+			return 커맨드객체.class.isAssignableFrom(clazz);
+	}
+		@Override
+		public void validate(){
+			// 유효성검사 코드
+			ValidationUtils.rejectIfEmptyOrWhitespace(errors,"커맨드객체의 필드명","에러메세지");
+			errors.rejectValue("커맨드객체의 필드명","에러메세지");
+
+		}
+	}
+(2) Controller에서 호출
+		ContentValidator validator = new ContentValidator();
+		validator.validate(contentDto, result);
+		if(result.hasErrors()) {
+			page = "커맨드객체";
+		}
+		result.getAllErrors()
+		result.getFieldError("커맨드객체의 필드명").getCode();
