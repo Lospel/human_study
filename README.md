@@ -2,6 +2,7 @@
 - 장소 : 서울휴먼교육센터학원
 - 교육기간 : 2022.08.05 ~ 2023.02.01
 - Java
+- JavaScript
 - Python
 - SQL
 - MachineLearning & DeepLearning
