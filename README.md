@@ -10,6 +10,7 @@
 - **JavaScript**
     - 2022.08.29 ~ 2022.08.31
     - 사용툴: eclipse, vscode
+    - 자바스크립트를 이용한 HTML 작성
 - **Python**
     - 2022.09.20 ~ 2022.09.27
     - 사용툴: jupyter notebook, eclipse
@@ -22,4 +23,7 @@
     - 대용량의 Dataset을 활용하여 Data Handling 실습
     - 테이블 생성 및 select, join 등을 활용한 DB관리
 - **MachineLearning & DeepLearning**
+    - 2022.10.17 ~
+    - 사용툴 : colab
+    - matplotlib, scikit 등 학습 및 실습
 - **SpringBoot**
