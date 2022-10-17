@@ -27,3 +27,6 @@
     - 사용툴 : colab
     - matplotlib, scikit 등 학습 및 실습
 - **SpringBoot**
+    + 2022.10.04 ~ 2022.10.11
+    + 사용툴 : eclipse, vscode
+    + bean, servlet 등을 통해 Model 메서드를 활용하고 Validator 사용법 등을 학습
