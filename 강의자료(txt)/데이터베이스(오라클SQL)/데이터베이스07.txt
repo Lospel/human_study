@@ -1,0 +1,125 @@
+오라클 SQL
+* Asterisk(star)
+{} brace
+<> arrow bracket 홑 화살괄호
+[] bracket
+~ wave
+' 
+"
+.
+_ underscore(underbar)
+- dash(hyphen)
+# sharp
+& ampersand
+^ accent agni
+! 
+
+★* Tree 구조 
+: 모든 노드는 상위 노드가 하나뿐이다.
+루트(root) (최상위 노드)
+branch(노드 사이의 길)
+노드(node)
+leaf, terminal(맨 아래 노드)
+parent(상위노드), super
+children(하위노드), sub
+
+이진트리(binary tree) : 모든 노드의 branch가 2개.(yes or no)
+
+*프로그래밍 언어
+- 변수
+- 데이터 타입
+- 연산자
+- 제어문
+- 함수
+- 객체지향 특성
+	1. 캡슐화(class, 접근제한자)
+	2. 상속(extend, implement)
+	3. 다형성(polymophism)
+	4. 추상화(interface)
+
+1. PL/SQL
+- Join/Subquery로 해결하지 못하는 연산작업
+- 주기적으로 반복되는 작업 
+- 사용자 정의 함수를 만들 필요가 있을 때
+을 해결하기 위해 등장.
+
+function
+: 반환값이 있는 모듈(코드의 묶음)
+	ex) function power(a,b) {
+		total=1;
+		for(i=0; i<b; i++){
+			total*=a;
+		}
+		return tatal;
+	}
+procedure
+: 반환값이 없는 모듈
+package
+: 함수와 프로시저를 모아놓은 모듈
+
+2. PL/SQL 구성요소
+
+변수 <> 자바 등은 [ int i =0; ] 
+: i Integer := 0;
+
+변수명 데이터타입 := 초기값/표현식;
+	ex) a integer := 2**2*3**2
+	vs_emp_name varchar2 (80);
+	c_code char(3);
+	age number := 12;
+
+변수명 데이블명.컬럼명%type := 초기값;
+	ex) name employees.name%type := 'John' ;
+
+정수 
+	ex) declare
+		a integer := 2**2*3**2; -> 2의 2승 곱하기 3의 2승 = 36
+
+★배정연산자 <> 자바 등은 [ = ]
+	[ := ]
+
+산술연산자
+	+, -, *, /, **, ||
+
+★비교연산자 <> 자바 등은 [ == ]
+	=, <>, !=, >, <, >=, <=, 
+	[ is null, is not null, between ~ and, in, exists, like ] - only PL/SQL
+
+논리연산자
+	not, and, or
+
+설명문 <> 자바 등은 [ // ]
+	/* */, [ -- ]
+
+*
+declare
+	변수선언
+begin
+	실행코드
+end;
+/
+	ex) declare
+   		vi_num number;
+	begin
+   		vi_num := -3.14;
+   		DBMS_OUTPUT.PUT_LINE(vi_num);
+	end;
+*
+자바 스크립트
+	document.write()
+	alert();
+자바
+	System.out.println()
+PL/SQL
+	DBMS_OUTPUT.PUT_LINE();
+
+3. Camel notation (낙타 표기법)
+	ex) 변수명: iAge, nCitizenNumber, sArea, strCity
+
+4. codeBlock
+	ex)
+	declare
+ 	   
+	begin
+ 	  
+	end;

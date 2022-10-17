@@ -1,218 +1,69 @@
-오라클 SQl
-- PL/SQL 제어문
-1. IF문
-if 비교문 then
+오라클SQL
+1. 트랜잭션(Transaction: 거래단위)
+Transaction 시작 (암묵적)
+- SQLPlus/SQL Developer 실행.
+- Commit/Rollback 실행 후.
+
+Transaction 종료 (암묵적)
+- SQLPlus/SQL Developer 종료(Commit)
+- SQLPlus/SQL Developer 비정상 종료(Rollback)
+	=> 정전, 윈도우비정상종료 등.
+
+Transaction에 포함되지 않는 SQL문 - rollback이 적용되지 않음.
+=> DDL문 (Create/Drop/Alter/Truncate/Grant/Revoke)
+
+1) Savepoint
+savepoint 세이브포인트명(레이블);
+rollback to 세이브포인트명(레이블);
+
+2. 예외처리
+1) 예외처리 구문
+declare
+
+begin
 	실행문;
-elsif 비교문2 then
-	실행문2;
-else
-	실행문3;
-end if;
-	ex) declare
-    		vn_salary employees.salary%type;
-   		vn_did departments.department_id%type;
-	begin
-  		select salary
-    		into vn_salary
-    		from employees
-    		where department_id = 90 and rownum = 1;
-    
-    		dbms_output.put_line(vn_salary);
-    
-    		if vn_salary between 1 and 3000 then
-        			dbms_output.put_line('낮음');
-    		elsif vn_salary between 3001 and 6000 then
-        			dbms_output.put_line('중간');
-    		elsif vn_salary between 6001 and 10000 then
-        			dbms_output.put_line('높음');
-    		else
-        			dbms_output.put_line('최상위');
-    		end if;
-	end;
+	exception when 예외종류 then 실행문;
+	when 예외종류2 then 실행문2;
+	...
+	when others then 실행문n;
+end;
 
-2. case문
-1) 하나의 표현식/컬럼명
-2) 동일한지 검사
-위의 2가지 경우에만 표현식을 case 다음에 바로 쓸 수 있고.
-나머지 경우에는  when 뒤에 표현식+결과1로 사용한다.
+[에러 종류]
+IndexOutOfBound
+Didvided by zero
+NullPointer
+Others
 
-case (표현식/조건식)  - 생략 가능
-	when 결과1 then
-		처리문1;
-	when 결과2 then
-		처리문2;
-	else
-		기타 처리문;
-end case;
+ex)
+declare
+vi_num number := 0;
 
-★ 3. while문(반복문)
-: 조건에 안맞으면 실행안됨. (0번 이상 실행)
-while 조건
-loop
-	실행문;
-end loop;
-	ex) declare
-	    vn_x integer := 1;
-	    total integer := 0;
-	begin
-	    while vn_x <= 100
-	    loop
-	        total := total + vn_x;
-	        vn_x := vn_x + 1;
-	    end loop;
-	    DBMS_OUTPUT.put_line('total = ' || total);
-	end;
+begin
+vi_num := 10/0;
+dbms_output.put_line('success');
 
-4. loop문(반복문)
-: 1번은 무조건 실행됨. (1번 이상 실행)
-loop
-	실행문;
-	exit [when 조건];
-	실행문;
-end loop;
-	ex) declare
-	    x integer := 2;
-	    y integer := 1;
-	begin
-	 loop
-	        DBMS_OUTPUT.put_line('구구단 2단 : ' || x || ' x ' || y || ' = ' || x * y);
-	        exit when y=9;
-	        y := y + 1;
-	 end loop;
-	end;
+exception when others then
+dbms_output.put_line('오류발생 - Divided by Zeor');
 
-5. for문(반복문)
-for ( 초기화; 조건문; 후처리) -> 자바 등
+end;
 
-for 인덱스변수 in [reverse] 초기값..최종값
-loop
-	실행문;
-end loop;
-	ex) for i in 1..9
-	loop
-		DBMS_OUTPUT.PUT_LINE('2x' || i || '=' || 2*i);
-	end loop;
+2) SQlCODE, SQLERRM을 이용한 예외정보 참조
+ex)
+dbms_output.put_line('SQL error code [' || sqlcode || ']');
+dbms_output.put_line('error message [' || sqlerrm || ']');
 
-6. continue문
-: continue when 조건
-	ex) for i in 1..9
-	loop
-		continue when 5
-		DBMS_OUTPUT.PUT_LINE('2x' || i || '=' || 2*i);
-	end loop;
-=> 2x1 .... 2x5(스킵).. 2x9
-	while i < 100
-	loop
-	~ continue when i=99
-	~ (i=99일 경우 실행x)
-	i = i +1;
-	end loop;
-
-7. 라벨(label)
-    if y=9 then
-        goto landing;
-    end if;
-        y := y + 1;
-    end loop;
-        <<landing>>
-	~
-8. null문
+3) 사용자 정의 예외
+declare
+	myExcept exception;	// user-defined exception
+begin
+...
 if ~ then
-elsif ~ then
-else null
+	raise myExcept;
 end if;
+...
+exception when ... then
+실행문;
+when myExcept then
+실행문;
 
-- PL/SQL의 사용자 정의 함수
-1. 함수 생성
-	1) 호출해주는 SQL문이 필요하다.
-
-create or replace FUNCTION 함수명(매개변수1 데이터타입,...,매개변수n 데이터타입)
-return (반환값의) 데이터타입 선언
-is/as
-	변수, 상수 선언(상수명 constant := 상수값);
-begin
-	실행문;
-return 반환값;
 end;
-	ex) create or replace function getDname(did varchar2)
-	return departments.department_name%type
-	is
-	    strName departments.department_name%type := ' ';
-	begin
-	    select department_name into strName 
-	    from departments
-	    where department_id = did;
-	    return strName;
-	end;
-
-2. 함수 호출
-	ex) select emp_name, salary, showLevel(salary) from employees;
-
-- 프로시저
-	1) SQLPlus / SQL Developer 안에서 
-		execute 프로시저명; <- 실행
-1. 프로시저 생성
-create or replace procedure 프로시저명
-	(매개변수1 in/out/in out 데이터타입, ..., 매개변수n in/out/in out 데이터타입)
-is/as
-	변수, 상수 선언
-begin
-	실행부
-[return;]
-end;
-
-2. 프로시저 실행
-exec/execute 프로시저명(매개변수n 값);
-: 프로시저를 코드블럭 내에서 호출할 때는 execute문이 사용할 수 없다.
-
-3. 매개변수 디폴트 값 설정
-function/procedure 이름 (a number, b varchar2 := '', c number := 0)
-
-exec 이름(10); == 이름(10,'',0)
-exec 이름(10,'x'); == 이름(10,'x',0)
-exec 이름(10,'x',4); == 이름(10,'x',4)
-이름(10, ,4) -> 에러(불가)
-
-4. out, in out 매개변수
-out	
-
-ex)
-create or replace PROCEDURE getDname(
-did number, dname out varchar2)
-is
-begin
-    select department_name into dname
-    from departments
-    where department_id = did;
-end;
-/
-declare
-    department_name departments.department_name%TYPE;
-begin
-    getDname(90,department_name);
-    dbms_output.put_line('부서명 = ' || department_name);
-end;
-/
-
-in out	
-
-ex)
-create or replace PROCEDURE getDpname(
-did in out number, dname out varchar2)
-is
-begin
-    select department_name into dname
-    from departments
-    where department_id = did;
-    did := 100;
-end;
-/
-declare
-    department_name departments.department_name%TYPE;
-    dep_id number := 80;
-begin
-    getDpname(dep_id,department_name);
-    dbms_output.put_line('부서명 = ' || department_name || '[' || dep_id || ']');
-end;
-/ -> 부서명은 80에 맞춰서 값이 나오지만 dep_id 부분은 100으로 변동되어서 나온다.
-
