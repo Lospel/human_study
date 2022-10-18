@@ -10,7 +10,7 @@
 - **JavaScript**
     - 2022.08.29 ~ 2022.08.31
     - 사용툴: eclipse, vscode
-    - 자바스크립트를 이용한 HTML 작성
+    - 자바스크립트를 이용한 HTML 작성과 Ajax, Bootstrap, Css, Jquery 등을 학습 및 실습
 - **Python**
     - 2022.09.20 ~ 2022.09.27
     - 사용툴: jupyter notebook, eclipse
