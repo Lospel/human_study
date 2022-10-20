@@ -25,7 +25,8 @@
 - **MachineLearning & DeepLearning**
     - 2022.10.17 ~
     - 사용툴 : colab
-    - matplotlib, scikit 등 학습 및 실습
+    - matplotlib, Scikit-Learn 등을 학습 및 실습
+    - KNeighbors, Feature Engineering, 과대적합-과소적합, 선형회귀, 다항회귀, PolynomialFeatures, StandardScaler, Lidge, Lasso, LogisticRegression, Decision Tree, Sampling, cross_validate, uniform, randint, Random Forest, GradientBoosting 등을 학습
 - **SpringBoot**
     + 2022.10.04 ~ 2022.10.11
     + 사용툴 : eclipse, vscode
