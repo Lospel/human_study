@@ -22,12 +22,12 @@
     - 사용툴 : Oracle SQL
     - 대용량의 Dataset을 활용하여 Data Handling 실습
     - 테이블 생성 및 select, join 등을 활용한 DB관리
+- **SpringBoot**
+    + 2022.10.04 ~ 2022.10.11
+    + 사용툴 : eclipse, vscode
+    + bean, servlet 등을 통해 Model 메서드를 활용하고 Validator 사용법 등을 학습
 - **MachineLearning & DeepLearning**
     - 2022.10.17 ~
     - 사용툴 : colab, kaggle
     - matplotlib, Scikit-Learn 등을 학습 및 실습
     - KNeighbors, Feature Engineering, 과대적합-과소적합, 선형회귀, 다항회귀, PolynomialFeatures, StandardScaler, Lidge, Lasso, LogisticRegression, Decision Tree, Sampling, cross_validate, uniform, randint, Random Forest, GradientBoosting, 자연어처리 등을 학습
-- **SpringBoot**
-    + 2022.10.04 ~ 2022.10.11
-    + 사용툴 : eclipse, vscode
-    + bean, servlet 등을 통해 Model 메서드를 활용하고 Validator 사용법 등을 학습
