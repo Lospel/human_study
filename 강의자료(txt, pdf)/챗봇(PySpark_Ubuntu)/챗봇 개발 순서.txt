@@ -42,7 +42,7 @@ export PATH=$SPARK_HOME/bin:$PATH
 export PYSPARK_PYTHON=/usr/bin/python3.8
 export PYSPARK_DRIVER_PYTHON=jupyter
 export PYSPARK_DRIVER_PYTHON_OPTS='notebook'
--> :wq!
+-> :wq!(저장)(미저장:q!)
 -> source ~/.bashrc
 -> ls
 -> history
@@ -71,3 +71,9 @@ c.NotebookApp.password = 'passwd()에서 복사한 비밀번호 붙여넣기'
 import numpy as np
 import pandas as pd
 sc
+
+3. 우분투에서 주피터 실행하기
+-> sudo apt-get update
+-> sudo apt upgrade -y
+-> source venv/bin/activate
+-> jupyter notebook -> localhost:8888 실행
