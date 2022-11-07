@@ -13,7 +13,7 @@
     - 자바스크립트를 이용한 HTML 작성과 Ajax, Bootstrap, Css, Jquery 등을 학습 및 실습
 - **Python**
     - 2022.09.20 ~ 2022.09.27
-    - 사용툴: Jupyter notebook, Eclipse
+    - 사용툴: Jupyter Notebook, Eclipse
     - pandas, numpy, matplotlib, seaborn, beautifulsoup 실습
     - titanic, tips, iris 등의 dataset을 활용하여 데이터 전처리, 시각화 실습
     - API 및 웹크롤링 실습
@@ -31,7 +31,11 @@
     - 사용툴 : Colab, Kaggle
     - Matplotlib, Scikit-Learn 등을 학습 및 실습
     - KNeighbors, Feature Engineering, 과대적합-과소적합, 선형회귀, 다항회귀, PolynomialFeatures, StandardScaler, Lidge, Lasso, LogisticRegression, Decision Tree, Sampling, cross_validate, uniform, randint, Random Forest, GradientBoosting, 자연어처리 등을 학습
+- **Lambda**
+    + 2022.11.07~
+    + 사용툴 : Ubuntu, Jupyter Notebook, Colab
+    +     
 - **ChatBot Project**
     + 2022.11.04 ~
-    + 사용툴 : Jupyter notebook, Pyspark, Ubuntu
+    + 사용툴 : Jupyter Notebook, Pyspark, Ubuntu
     + 
