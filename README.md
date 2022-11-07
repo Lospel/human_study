@@ -34,7 +34,7 @@
 - **Pyspark**
     + 2022.11.07~
     + 사용툴 : Ubuntu, Jupyter Notebook, Colab
-    +     
+    + Lambda, 
 - **ChatBot Project**
     + 2022.11.04 ~
     + 사용툴 : Jupyter Notebook, Pyspark, Ubuntu
