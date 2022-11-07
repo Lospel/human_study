@@ -37,5 +37,5 @@
     + Lambda, 
 - **ChatBot Project**
     + 2022.11.04 ~
-    + 사용툴 : Jupyter Notebook, Pyspark, Ubuntu
+    + 사용툴 : Jupyter Notebook, Colab, Oracle SQL, Vscode
     + 
