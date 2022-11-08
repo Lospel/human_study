@@ -76,4 +76,10 @@ sc
 -> sudo apt-get update
 -> sudo apt upgrade -y
 -> source venv/bin/activate
--> jupyter notebook -> localhost:8888 실행
+-> pyspark -> localhost:8888 실행
+
+4. 우분투에서 vscode 실행하기
+-> cd pyspark_ml/
+-> source venv/bin/activate
+-> code .
+-> pyspark
