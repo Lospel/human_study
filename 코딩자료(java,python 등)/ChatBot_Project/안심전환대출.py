@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 from flask import Flask, request
 import pandas as pd 
 from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String
@@ -21,23 +20,19 @@ def querySQL():
     
     body = request.get_json()
     params_df = body['action']['params']
-    print(params_df, print(type(params_df)))
     sepal_length_num = str(json.loads(params_df['sepal_length_num'])['amount'])
 
-    print(sepal_length_num, type(sepal_length_num))
     query_str = f'''
         SELECT sepal_length, species FROM iris where sepal_length >= {sepal_length_num}
     '''
 
-    engine = create_engine("postgresql://qxqcovcxobgrzr:136d1a4ee21d7d53fefe41723c82cadb3a41edd4203ef9b4759b8ecb1daf68a7@ec2-107-23-76-12.compute-1.amazonaws.com:5432/d7477vdhmjaq31", echo = False)
+    engine = create_engine("postgresql://qxqcovcxobgrzr:136d1a4ee21d7d53fefe41723c82cadb3a41edd4203ef9b4759b8ecb1daf68a7@ec2-107-23-76-12.compute-1.amazonaws.com:5432/d7477vdhmjaq31"
+    , echo = False)
 
     with engine.connect() as conn:
         query = conn.execute(text(query_str))
 
     df = pd.DataFrame(query.fetchall())
-    print('------------')
-    print(df)
-    print('------------')
     nrow_num = str(len(df.index))
     answer_text = nrow_num
 
@@ -60,28 +55,23 @@ def querySQL():
 def querySQL2():
     
     body = request.get_json()
-    print(body, type(body))
     
     location01 = body['action']['params']['sys_location01']
     location02 = body['action']['params']['sys_location02']
     location03 = body['action']['params']['sys_location03']
 
     query_str = f'''
-        SELECT DISTINCT "NAME" FROM apt2 where "CITY" = '{location01}' and "GU" = '{location02}' and "DONG" = '{location03}'
+        SELECT DISTINCT "NAME" FROM apt2 where "CITY" = '{location01}' and "GU" = '{location02}' 
+        and "DONG" = '{location03}'
     '''
-    print('---------------')
-    print(query_str)
-    print('---------------')
 
-    engine = create_engine("postgresql://qxqcovcxobgrzr:136d1a4ee21d7d53fefe41723c82cadb3a41edd4203ef9b4759b8ecb1daf68a7@ec2-107-23-76-12.compute-1.amazonaws.com:5432/d7477vdhmjaq31", echo = False)
+    engine = create_engine("postgresql://qxqcovcxobgrzr:136d1a4ee21d7d53fefe41723c82cadb3a41edd4203ef9b4759b8ecb1daf68a7@ec2-107-23-76-12.compute-1.amazonaws.com:5432/d7477vdhmjaq31"
+    , echo = False)
 
     with engine.connect() as conn:
         query = conn.execute(text(query_str))
 
     df = pd.DataFrame(query.fetchall())
-    print('-----------')
-    print(df)
-    print('----------')
     results = df['NAME'].tolist()
     answer_text = '/ '.join(results)  
 
@@ -91,7 +81,9 @@ def querySQL2():
             "outputs": [
                 {
                     "simpleText": {
-                        "text": location01 + "/" + location02 + "/" + location03 + "(을)를 선택하셨습니다. \n 해당 지역의 아파트는 \n [" + answer_text + "] \n 입니다. \n 소유하신 아파트명을 입력해 주세요."
+                        "text": location01 + "/" + location02 + "/" + location03 + 
+                        "(을)를 선택하셨습니다. \n 해당 지역의 아파트는 \n [" + answer_text + 
+                        "] \n 입니다. \n 소유하신 아파트명을 입력해 주세요."
                     }
                 }
             ]
@@ -106,7 +98,6 @@ def querySQL2():
 def querySQL3():
     
     body = request.get_json()
-    print(body, type(body))
     
     location01 = body['action']['params']['sys_location01']
     location02 = body['action']['params']['sys_location02']
@@ -114,21 +105,17 @@ def querySQL3():
     location04 = body['action']['params']['sys_location04']
 
     query_str = f'''
-        SELECT "TYPE" FROM apt2 where "CITY" = '{location01}' and "GU" = '{location02}' and "DONG" = '{location03}' and "NAME" = '{location04}'
+        SELECT "TYPE" FROM apt2 where "CITY" = '{location01}' and "GU" = '{location02}' 
+        and "DONG" = '{location03}' and "NAME" = '{location04}'
     '''
-    print('---------------')
-    print(query_str)
-    print('---------------')
 
-    engine = create_engine("postgresql://qxqcovcxobgrzr:136d1a4ee21d7d53fefe41723c82cadb3a41edd4203ef9b4759b8ecb1daf68a7@ec2-107-23-76-12.compute-1.amazonaws.com:5432/d7477vdhmjaq31", echo = False)
+    engine = create_engine("postgresql://qxqcovcxobgrzr:136d1a4ee21d7d53fefe41723c82cadb3a41edd4203ef9b4759b8ecb1daf68a7@ec2-107-23-76-12.compute-1.amazonaws.com:5432/d7477vdhmjaq31"
+    , echo = False)
 
     with engine.connect() as conn:
         query = conn.execute(text(query_str))
 
     df = pd.DataFrame(query.fetchall())
-    print('-----------')
-    print(df)
-    print('----------')
     results = df['TYPE'].tolist()
     answer_text = '/'.join(str(s) for s in results)
 
@@ -138,7 +125,8 @@ def querySQL3():
             "outputs": [
                 {
                     "simpleText": {
-                        "text": location04 + "(을)를 선택하셨습니다. \n 해당 아파트의 타입은 \n [" + answer_text + "] \t 입니다. \n 해당하시는 아파트의 타입을 입력해주세요."
+                        "text": location04 + "(을)를 선택하셨습니다. \n 해당 아파트의 타입은 \n [" 
+                        + answer_text + "] \t 입니다. \n 해당하시는 아파트의 타입을 입력해주세요."
                     }
                 }
             ]
@@ -151,38 +139,26 @@ def querySQL3():
 def querySQL4():
     
     body = request.get_json()
-    print(body, type(body))
     
     location01 = body['action']['params']['sys_location01']
     location02 = body['action']['params']['sys_location02']
     location03 = body['action']['params']['sys_location03']
     location04 = body['action']['params']['sys_location04']
     sys_number = str(json.loads(body['action']['params']['sys_number'])['amount'])
-    print('---------------')
-    print(sys_number, type(sys_number))
-    print('---------------')
     # params_df = body['action']['params']
-    # print(params_df, print(type(params_df)))
     # sys_number = str(json.loads(params_df['sys_number'])['amount'])
 
     query_str = f'''
-        SELECT "PRICE" FROM apt2 where "CITY" = '{location01}' and "GU" = '{location02}' and "DONG" = '{location03}' and "NAME" = '{location04}' AND "TYPE" = {sys_number}
+        SELECT "PRICE" FROM apt2 where "CITY" = '{location01}' and "GU" = '{location02}' 
+        and "DONG" = '{location03}' and "NAME" = '{location04}' AND "TYPE" = {sys_number}
     '''
-    print('---------------')
-    print(query_str)
-    print('---------------')
 
-    engine = create_engine("postgresql://qxqcovcxobgrzr:136d1a4ee21d7d53fefe41723c82cadb3a41edd4203ef9b4759b8ecb1daf68a7@ec2-107-23-76-12.compute-1.amazonaws.com:5432/d7477vdhmjaq31", echo = False)
+    engine = create_engine("postgresql://qxqcovcxobgrzr:136d1a4ee21d7d53fefe41723c82cadb3a41edd4203ef9b4759b8ecb1daf68a7@ec2-107-23-76-12.compute-1.amazonaws.com:5432/d7477vdhmjaq31"
+    , echo = False)
 
     with engine.connect() as conn:
         query = conn.execute(text(query_str))
-    print('-----------')
-    print(query)
-    print('-------------')
     df = pd.DataFrame(query.fetchall())
-    print('-----------')
-    print(df)
-    print('----------')
     results = df['PRICE'].tolist()
     answer_text = '/'.join(str(s) for s in results)
 
@@ -214,13 +190,8 @@ def querySQL4():
 def querySQL5():
     
     body = request.get_json()
-    print(body, type(body))
     
     price = json.loads(body['action']['params']['sys_number02'])['amount']
-    
-    print('---------------')
-    print(price, type(price))
-    print('---------------')
     
     Error_message = "코드이상"
     if price <= 600000000:
@@ -230,19 +201,6 @@ def querySQL5():
     else:
         answer_text = Error_message
 
-    # responseBody = {
-    #     "version": "2.0",
-    #     "template": {
-    #         "outputs": [
-    #             {
-    #                 "simpleText": {
-    #                     "text": answer_text 
-    #                 }
-    #             }
-    #         ]
-    #     }
-    # }
-    # return responseBody
     responseBody = {
         "contents":[
                         {
@@ -270,10 +228,3 @@ def querySQL5():
           ]
     }
     return responseBody
-    
-
-
-
-
-
-
