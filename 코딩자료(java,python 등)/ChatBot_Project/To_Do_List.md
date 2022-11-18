@@ -10,9 +10,22 @@
     + To Do : 데이터 전처리.
 - 22.11.25일 ~ 28일
     + To Do : 부동산 뉴스 크롤링 코드 작성. 안심전환대출 DB 연동 코드 작성. 스킬서버 구축 (Heroku & Flask 연동)
-    + 
+    + <img src="https://user-images.githubusercontent.com/115764991/202608024-98bf957a-9c25-46e1-825a-3d552f82cfd8.png" width="100" height="100">
+<img src="https://user-images.githubusercontent.com/115764991/202608028-00fe6074-5c57-4bde-9f8f-2a1b53ea442b.png" width="100" height="100">
+<img src="https://user-images.githubusercontent.com/115764991/202608041-6235d592-d89e-4610-b300-c56c92b3ea09.png" width="100" height="100">
+<img src="https://user-images.githubusercontent.com/115764991/202608045-0adf16c7-a8b7-4275-a7c6-1071f141f124.png" width="100" height="100">
+<img src="https://user-images.githubusercontent.com/115764991/202608048-fb8d61ab-b32b-4b3d-88af-37e9d4644357.png" width="100" height="100">
+<img src="https://user-images.githubusercontent.com/115764991/202608049-43869ff3-2021-4e5a-92e4-c63236043c98.png" width="100" height="100">
+<img src="https://user-images.githubusercontent.com/115764991/202608051-dc00c577-8584-4c79-8fac-960a5cc925ea.png" width="100" height="100">
 - 22.11.29일 ~ 30일
     + To Do : 챗봇 연동 및 배포. 문제점 개선.
+    + <img src="https://user-images.githubusercontent.com/115764991/202609129-df2635c9-9c76-4bfd-9c95-a2513dfe3842.jpg" width="100" height="100">
+<img src="https://user-images.githubusercontent.com/115764991/202609132-d3af9a92-5f11-4919-8634-acdc52cb4e6c.jpg" width="100" height="100">
+<img src="https://user-images.githubusercontent.com/115764991/202609134-fbcfa880-4cc6-4022-b93a-fb428b657b0b.jpg" width="100" height="100">
+<img src="https://user-images.githubusercontent.com/115764991/202609137-38acdb19-3426-4c73-8fbf-48d5c4036254.jpg" width="100" height="100">
+<img src="https://user-images.githubusercontent.com/115764991/202609139-5d1a2bbd-a592-49a2-8bdb-d93e4afa25b6.jpg" width="100" height="100">
+<img src="https://user-images.githubusercontent.com/115764991/202609141-fc3e44dd-331c-457a-8a9f-f61bf9918906.jpg" width="100" height="100">
+<img src="https://user-images.githubusercontent.com/115764991/202609143-c29c6d0c-d5c7-4084-ba1e-bb1fcd6ebb02.jpg" width="100" height="100">
 - 22.12.01일
     + To Do : 프로젝트 보고서 작성
 - 22.12.02일
