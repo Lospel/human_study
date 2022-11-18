@@ -3,4 +3,4 @@
 **ChatBot Project**
 + 2022.11.17 ~ 
 + 사용툴 : Jupyter Notebook, Colab, Oracle SQL, Vscode, Heroku
-+ To_Do_List.md
++ [To_Do_List](To_Do_List.md)
