@@ -36,7 +36,7 @@
     + 사용툴 : Ubuntu, Jupyter Notebook, Colab
     + Lambda, PairRDD, RDD, SparkDataFrame 등 학습
 - **ChatBot Project**
-    + 2022.11.17 ~ 
+    + 2022.11.17 ~ 2022.11.02
     + 사용툴 : Jupyter Notebook, Colab, Oracle SQL, Vscode, Heroku
     + [To_Do_List](%EC%BD%94%EB%94%A9%EC%9E%90%EB%A3%8C(java,python%20%EB%93%B1)/ChatBot_Project/To_Do_List.md)
     + 번외 : 뉴스 크롤링 코드를 이용한 txt 파일 생성 및 DB 저장.
