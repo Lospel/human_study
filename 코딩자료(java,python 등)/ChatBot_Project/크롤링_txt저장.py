@@ -1,10 +1,21 @@
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
+import os
+
 x = datetime.now()
 y = x.date()
 a = str(y)
-path_folder = "C:/Users/h/Pictures/ "+ a
+
+path_folder = "C:/Users/h/Pictures/"+ a
+def createFolder(directory):
+    try:
+        if not os.path.exists(directory):
+            os.makedirs(directory)
+    except OSError:
+        print ('Error: Creating directory. ' +  directory)
+ 
+createFolder(path_folder)
 
 # 주요뉴스
 def naver_sites_all(url):
@@ -39,17 +50,17 @@ def naver_sites_all(url):
   for i in link_thumbnail[1:2]:
     MainNewsImg02 = i
 
-  f = open(path_folder+"\주요뉴스_텍스트.txt","w")
+  f = open(path_folder+"/주요뉴스_텍스트.txt","w")
   f.write(MainNewsText01+"@@")
   f.write(MainNewsText02)
   f.close()
 
-  f = open(path_folder+"\주요뉴스_이미지.txt","w")
+  f = open(path_folder+"/주요뉴스_이미지.txt","w")
   f.write(MainNewsImg01+"@@")
   f.write(MainNewsImg02)
   f.close()
 
-  f = open(path_folder+"\주요뉴스_URL.txt","w")
+  f = open(path_folder+"/주요뉴스_URL.txt","w")
   f.write(MainNewsUrl01+"@@")
   f.write(MainNewsUrl02)
   f.close()

@@ -6,7 +6,7 @@ from datetime import datetime
 x = datetime.now()
 y = x.date()
 a = str(y)
-path_folder = r"C:\Users\h\Pictures\\" + a
+path_folder = "C:/Users/h/Pictures/" + a
 
 if not os.path.isdir(path_folder):
     os.mkdir(path_folder)
@@ -21,7 +21,7 @@ def crawling_sites_img(url):
   i = 0
   for link in link_thumbnail:          
     i += 1
-    urlretrieve(link, path_folder + f'{i}.jpg')
+    urlretrieve(link, path_folder + f'/{i}.jpg')
 
 url = "https://land.naver.com/news/headline.naver"
 crawling_sites_img(url)

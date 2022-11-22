@@ -3,7 +3,7 @@ from datetime import datetime
 x = datetime.now()
 y = x.date()
 a = str(y)
-path_folder = "C:/Users/h/Pictures/ "+ a
+path_folder = "C:/Users/h/Pictures/"+ a
 
 dsn = cx_Oracle.makedsn("localhost",1521,"orcl")
 db = cx_Oracle.connect('ora_user','human123', dsn, encoding='utf8')
