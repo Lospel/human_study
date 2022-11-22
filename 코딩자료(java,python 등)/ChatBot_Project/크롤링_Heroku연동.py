@@ -4,6 +4,12 @@ import pandas as pd
 from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String
 from sqlalchemy.sql import text
 
+app = Flask(__name__)
+
+@app.route("/")
+def index():
+    return "Hello World!"
+
 ## DB 연결 Local
 def db_create():
     # 로컬
@@ -22,13 +28,6 @@ def db_create():
     data = pd.read_csv('data/MainNews.csv')
     print(data)
     data.to_sql(name='MainNews', con=engine, schema = 'public', if_exists='replace', index=False)
-
-app = Flask(__name__)
-
-@app.route("/")
-def index():
-    # db_create()
-    return "DB Created Done!!!"
 
 # if __name__ == "__main__":
 #     db_create()
