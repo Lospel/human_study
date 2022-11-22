@@ -1,1 +1,1 @@
-web: gunicorn app:안심전환대출, 뉴스크롤링코드
+web: gunicorn app:app

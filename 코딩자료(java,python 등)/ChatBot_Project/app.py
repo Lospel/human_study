@@ -2,6 +2,7 @@
 from flask import Flask, request
 import pandas as pd 
 from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String
+import json
 from sqlalchemy.sql import text
 
 ## DB 연결 Local
