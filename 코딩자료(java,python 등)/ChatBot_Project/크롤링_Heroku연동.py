@@ -19,7 +19,7 @@ def db_create():
     engine = create_engine("postgres://bypdipoxswrvkd:1014bfc1e87c03ffb7268bdeaa83408c615f16b80781d8094ce52043bf014ce1@ec2-52-23-131-232.compute-1.amazonaws.com:5432/dfshtv0nbclup8", echo = False)
 
     engine.connect()
-    engine.execute("""CREATE TABLE MainNews 
+    engine.execute("""CREATE TABLE IF NOT EXISTS MainNews 
     (day VARCHAR(10), 
     text VARCHAR(255), 
     img VARCHAR(255), 
@@ -29,9 +29,9 @@ def db_create():
     print(data)
     data.to_sql(name='MainNews', con=engine, schema = 'public', if_exists='replace', index=False)
 
-# if __name__ == "__main__":
-#     db_create()
-#     application.run()
+if __name__ == "__main__":
+    db_create()
+    app.run()
 
 from datetime import datetime
 x = datetime.now()
