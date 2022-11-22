@@ -50,7 +50,7 @@ def queryMainNews():
         SELECT text, img, url FROM MainNews where day == {a}
     '''
 
-    engine = create_engine("postgres://iqnofbbojfepjv:0ade6fc6f063e65424efceadaea3b3b42ff8267b34dac02c40622cacf0dfb04c@ec2-23-21-76-219.compute-1.amazonaws.com:5432/ded2cbcqvof76m", echo = False)
+    engine = create_engine("postgres://bypdipoxswrvkd:1014bfc1e87c03ffb7268bdeaa83408c615f16b80781d8094ce52043bf014ce1@ec2-52-23-131-232.compute-1.amazonaws.com:5432/dfshtv0nbclup8", echo = False)
 
     with engine.connect() as conn:
         query = conn.execute(text(query_str))
