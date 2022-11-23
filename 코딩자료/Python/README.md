@@ -15,4 +15,5 @@
 ## **Numpy**
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/NumPy_logo_2020.svg/512px-NumPy_logo_2020.svg.png?20200723114325" width="200" height="200">
 
-- 
+- 행렬 및 대규모 다차원 배열을 위한 파이썬 라이브러리.
+- Numpy 형태의 배열 생성. 배열값 추가, 수정, 삭제. Numpy 배열의 곱셉. 배열의 형태 변환(int, float, bool). 튜플 형태로 변환 등을 학습함.
