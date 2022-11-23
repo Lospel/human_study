@@ -9,3 +9,6 @@
 
 - 비동기 통신 웹 개발 기법.
 - 하나의 Html 문서를 통해 다른 Html 문서에 접속하는 법. txt파일을 만들어 Html에 띄우는 법. <"li"> 부분만 글씨 크기와 굵기를 수정하는 법. <"Style"> 이나 <"a"> 에 직접 기능을 입력하여, 클릭하면 저장된 함수가 실행하는 법을 학습함.
+## **Bootstrap**
+![Bootstrap](https://getbootstrap.com/docs/5.2/assets/brand/bootstrap-logo-shadow.png)
+- 
