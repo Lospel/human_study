@@ -18,9 +18,10 @@
 ## **Css**
 <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" width="200" height="200">
 
-- 종속형 시트 또는 스타일 시트
+- 종속형 시트 또는 스타일 시트.
 - 다양한 방법으로 작성된 Html 문서에 css를 내부, 외부, 인라인 스타일 등 3가지 방법을 통해 디자인을 변경하는 법을 학습.
 ## **jQuery**
 <img src="https://velog.velcdn.com/images/hikoand/post/7a027ba4-e221-42c3-9b43-998757a9f156/2541853857EA02BC16.gif" width="200" height="200">
 
-- 
+- 자바스크립트 라이브러리.
+- 오픈 소스인 jQuery를 이용하여, Html의 디자인을 변경하는 법. <"script src=jQuery">와 js 파일을 연결하여 css를 사용하는 법을 학습함.
