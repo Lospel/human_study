@@ -34,4 +34,6 @@
 ## **BeautifulSoup**
 <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FQYUOm%2FbtrdImwr90w%2FJDfR4LxcykvM9rTFBtwktk%2Fimg.png" width="200" height="200">
 
-- 
+- Html, XML 문서들의 구문을 분석하고 데이터를 추출할 수 있는 파이썬 패키지.
+- 네이버 금융 사이트를 활용하여 특정 종목에 담긴 내용을 txt 파일로 크롤링하여 저장하는 방법 등을 학습함.
+- 네이버 부동산 뉴스의 주요 뉴스와 핫이슈 등을 크롤링 하는 방법을 실습함.
