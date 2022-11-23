@@ -30,3 +30,8 @@
 
 - Matplotlib 을 기반으로 다양한 색상 테마와 통계용 차트 등의 기능을 추가한 시각화 라이브러리.
 - 외부 데이터를 활용한 산점도, 수직 막대 그래프, 1차원, 다차원 실수 분포 플롯 및 카운트 플롯 등을 학습함.
+
+## **BeautifulSoup**
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FQYUOm%2FbtrdImwr90w%2FJDfR4LxcykvM9rTFBtwktk%2Fimg.png" width="200" height="200">
+
+- 
