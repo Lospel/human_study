@@ -19,13 +19,14 @@ def db_create():
     engine = create_engine("postgres://bypdipoxswrvkd:1014bfc1e87c03ffb7268bdeaa83408c615f16b80781d8094ce52043bf014ce1@ec2-52-23-131-232.compute-1.amazonaws.com:5432/dfshtv0nbclup8", echo = False)
 
     engine.connect()
-    engine.execute("""CREATE TABLE IF NOT EXISTS MainNews 
-    (day VARCHAR(10), 
+    engine.execute("""CREATE TABLE MainNews(
+    day VARCHAR(10), 
     text VARCHAR(255), 
     img VARCHAR(255), 
-    url VARCHAR(255));
-    """)
-    data = pd.read_csv('data/MainNews.csv')
+    url VARCHAR(255)
+    )""")
+
+    data = pd.read_csv(r'C:\Users\h\Desktop\temp221014\코딩자료(java,python 등)\ChatBot_Project\data\MainNews.csv')
     print(data)
     data.to_sql(name='MainNews', con=engine, schema = 'public', if_exists='replace', index=False)
 

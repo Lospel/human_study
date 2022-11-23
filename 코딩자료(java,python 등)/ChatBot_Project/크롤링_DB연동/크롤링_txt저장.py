@@ -65,8 +65,6 @@ def naver_sites_all(url):
   f.write(MainNewsUrl02)
   f.close()
 
-naver_sites_all("https://land.naver.com/news/headline.naver")
-
 # 핫이슈
 def naver_hotissue_all(url):
   response = requests.request("GET", url)
@@ -115,9 +113,6 @@ def naver_hotissue_all(url):
   f.write(HotIssueUrl02)
   f.close()
 
-naver_hotissue_all("https://land.naver.com/news/hotIssue.naver")
-
-
 # 지역별 뉴스 텍스트, 이미지, URL 가져오기
 def naver_region_all(url):
   global RegionImg01
@@ -157,7 +152,6 @@ def naver_region_all(url):
     RegionUrl01 = i
   for i in places_url[1:2]:
     RegionUrl02 = i
-
 def Region(region):
   f = open(path_folder+ "\\" + region + "_텍스트.txt","w")
   f.write(RegionText01+"@@")
@@ -173,7 +167,6 @@ def Region(region):
   f.write(RegionUrl01+"@@")
   f.write(RegionUrl02)
   f.close()
-
 def RegionNews():
   
   regions = {'서울':'https://land.naver.com/news/region.naver?city_no=1100000000&dvsn_no=',
@@ -198,4 +191,7 @@ def RegionNews():
     naver_region_all(regions[i])
     Region(i)
 
+# 함수 실행
+naver_sites_all("https://land.naver.com/news/headline.naver")
+naver_hotissue_all("https://land.naver.com/news/hotIssue.naver")
 RegionNews()

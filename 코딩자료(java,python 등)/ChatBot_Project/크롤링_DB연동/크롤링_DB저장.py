@@ -157,5 +157,6 @@ MainNews()
 HotIssue()
 RegionNews2()
 
+# DB 종료
 cursor.close()
 db.close()
