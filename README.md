@@ -15,10 +15,11 @@
     - [JavaScript](%EC%BD%94%EB%94%A9%EC%9E%90%EB%A3%8C/JavaScript)
 - **Python**
     - 2022.09.20 ~ 2022.09.27
-    - 사용툴: Jupyter Notebook, Eclipse
+    - 사용툴: Jupyter Notebook, Eclipse, Vscode
     - pandas, numpy, matplotlib, seaborn, beautifulsoup 실습
     - titanic, tips, iris 등의 dataset을 활용하여 데이터 전처리, 시각화 실습
     - API 및 웹크롤링 실습
+    - [Python](%EC%BD%94%EB%94%A9%EC%9E%90%EB%A3%8C/Python)
 - **SQL**
     - 2022.09.07 ~ 2022.09.16
     - 사용툴 : Oracle SQL
