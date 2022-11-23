@@ -1,4 +1,4 @@
-# (산대특)_공공데이터 활용 빅데이터 분석 및 시각화 전문가 과정_육성
+# (산대특) 공공데이터 활용 빅데이터 분석 및 시각화 전문가 과정 육성
 ## **과정소개**
 - 장소 : 서울휴먼교육센터학원
 - 교육기간 : 2022.08.05 ~ 2023.02.01
@@ -7,10 +7,12 @@
     - 2022.08.05 ~ 2022.08.25
     - 사용툴: Eclipse
     - java 기초 문법 학습 및 실습
+    - [Java](%EC%BD%94%EB%94%A9%EC%9E%90%EB%A3%8C/JAVA)
 - **JavaScript**
     - 2022.08.29 ~ 2022.08.31
     - 사용툴: Eclipse, Vscode
     - 자바스크립트를 이용한 HTML 작성과 Ajax, Bootstrap, Css, Jquery 등을 학습 및 실습
+    - [JavaScript](%EC%BD%94%EB%94%A9%EC%9E%90%EB%A3%8C/JavaScript)
 - **Python**
     - 2022.09.20 ~ 2022.09.27
     - 사용툴: Jupyter Notebook, Eclipse
@@ -37,6 +39,7 @@
     + Lambda, PairRDD, RDD, SparkDataFrame 등 학습
 - **ChatBot Project**
     + 2022.11.17 ~ 2022.12.02
+    + 사용언어 : Python, SQL
     + 사용툴 : Jupyter Notebook, Colab, Oracle SQL, Vscode, Heroku(22.11.28일 무료버전 종료)
     + [To_Do_List](%EC%BD%94%EB%94%A9%EC%9E%90%EB%A3%8C(java,python%20%EB%93%B1)/ChatBot_Project/To_Do_List.md)
     + 번외 : 뉴스 크롤링 코드를 이용한 txt 파일 생성 및 DB 저장. DB파일 csv로 변환 및 저장.
