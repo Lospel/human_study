@@ -11,3 +11,8 @@
 
 - 데이터 조작 및 분석을 위한 소프트웨어 라이브러리.
 - DataFrame을 이용한 배열 제작. dictionary 자료형. 외부데이터를 이용한 배열 생성. 배열을 이용한 계산기 제작. 입력값을 받을 수 있는 회원가입 제작 등을 실습.
+
+## **Numpy**
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/NumPy_logo_2020.svg/512px-NumPy_logo_2020.svg.png?20200723114325" width="200" height="200">
+
+- 
