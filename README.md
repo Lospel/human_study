@@ -11,7 +11,7 @@
 - **JavaScript**
     - 2022.08.29 ~ 2022.08.31
     - 사용툴: Eclipse, Vscode
-    - 자바스크립트를 이용한 HTML 작성과 Ajax, Bootstrap, Css, Jquery 등을 학습 및 실습
+    - 자바스크립트 기초 문법 및 Ajax, Bootstrap, Css, Jquery 등을 학습 및 실습
     - [JavaScript](%EC%BD%94%EB%94%A9%EC%9E%90%EB%A3%8C/JavaScript)
 - **Python**
     - 2022.09.20 ~ 2022.09.27
