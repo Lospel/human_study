@@ -6,6 +6,7 @@
 - TensorFlow, PyTorch 기법 학습
 - Matplotlib, Scikit-Learn 등을 실습
 - KNeighbors, Feature Engineering, 과대적합-과소적합, 선형회귀, 다항회귀, PolynomialFeatures, StandardScaler, Lidge, Lasso, LogisticRegression, Decision Tree, Sampling, cross_validate, uniform, randint, Random Forest, GradientBoosting, 자연어처리 등을 학습
+- [학습 자료](Colab)
 
 ## **TensorFlow**
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/TensorFlow_logo.svg/1200px-TensorFlow_logo.svg.png" width="200" height="200">

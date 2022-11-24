@@ -11,3 +11,4 @@
 
 - Python 환경에서 Apache Spark를 사용할 수 있는 인터페이스.
 - 사용자 spark 세션 만들기. fileRDD 를 활용한 외부 데이터 불러오기. RDD 튜플. Lamda 함수를 활용한 사칙연산. Spark 형식의 데이터 프레임 생성. SparkSQL을 활용한 테이블 생성. PySpark를 활용한 머신러닝 등을 학습.
+- [학습 자료](PySpark_Study)
