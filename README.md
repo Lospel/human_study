@@ -7,7 +7,7 @@
     - 2022.08.05 ~ 2022.08.25
     - 사용툴: Eclipse
     - java 기초 문법 학습 및 실습
-    - [Java](%EC%BD%94%EB%94%A9%EC%9E%90%EB%A3%8C/JAVA)
+    - [Java](%EC%BD%94%EB%94%A9%EC%9E%90%EB%A3%8C/Java)
 - **JavaScript**
     - 2022.08.29 ~ 2022.08.31
     - 사용툴: Eclipse, Vscode
