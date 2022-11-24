@@ -45,3 +45,15 @@
 - **ChatBot Project**
     + 2022.11.17 ~ 2022.12.02
     + [ChatBot Project](https://github.com/Lospel/chatbot_project)
+## **라이브러리**
+- [전체 라이브러리](requirements.txt)
+- 주요 라이브러리
+    + beautifulsoup4==4.11.1
+    + matplotlib==3.6.1
+    + numpy==1.23.4
+    + SQLAlchemy==1.4.44
+    + tensorboard==2.10.1
+    + tensorflow==2.10.0
+    + virtualenv==20.16.5
+    + java==18.0.2
+    + python==3.10.7
