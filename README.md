@@ -30,7 +30,7 @@
     + 2022.10.04 ~ 2022.10.11
     + 사용툴 : Eclipse, Vscode
     + SpringBoot, bean, servlet 등을 통해 Model 메서드를 활용하고 Validator 사용법 등을 학습
-    + [Spring](%EC%BD%94%EB%94%A9%EC%9E%90%EB%A3%8C/SpringBoot)
+    + [Spring](%EC%BD%94%EB%94%A9%EC%9E%90%EB%A3%8C/Spring)
 - **MachineLearning & DeepLearning**
     - 2022.10.17 ~ 2022.11.04
     - 사용툴 : Colab, Kaggle
