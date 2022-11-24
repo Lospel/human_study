@@ -13,4 +13,8 @@
 
 ## **Bean**
 ![Bean 구조](https://gmlwjd9405.github.io/images/spring-framework/spring-bean.png)
-- 
+- Spring IOC 컨테이너가 관리하는 자바 객체.
+- Java Annotation을 활용. @Override, @Controller 등을 학습. 
+
+## **Servlet**
+[Servlet 참조](../Java/README.md)
