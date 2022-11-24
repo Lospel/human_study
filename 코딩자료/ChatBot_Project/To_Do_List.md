@@ -16,6 +16,7 @@
     + <img src="https://user-images.githubusercontent.com/115764991/202609129-df2635c9-9c76-4bfd-9c95-a2513dfe3842.jpg" width="100" height="100"> <img src="https://user-images.githubusercontent.com/115764991/202609132-d3af9a92-5f11-4919-8634-acdc52cb4e6c.jpg" width="100" height="100"> <img src="https://user-images.githubusercontent.com/115764991/202609134-fbcfa880-4cc6-4022-b93a-fb428b657b0b.jpg" width="100" height="100"> <img src="https://user-images.githubusercontent.com/115764991/202609137-38acdb19-3426-4c73-8fbf-48d5c4036254.jpg" width="100" height="100"> <img src="https://user-images.githubusercontent.com/115764991/202609139-5d1a2bbd-a592-49a2-8bdb-d93e4afa25b6.jpg" width="100" height="100"> <img src="https://user-images.githubusercontent.com/115764991/202609141-fc3e44dd-331c-457a-8a9f-f61bf9918906.jpg" width="100" height="100"> <img src="https://user-images.githubusercontent.com/115764991/202609143-c29c6d0c-d5c7-4084-ba1e-bb1fcd6ebb02.jpg" width="100" height="100">
 - 22.12.01일
     + To Do : 프로젝트 보고서 작성
-    +
+    + [챗봇 보고서](%EB%B6%80%EB%8F%99%EC%82%B0_%EC%B1%97%EB%B4%87_%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EC%B7%A8%EC%97%85%EC%9A%A9.pdf)
+    + ![부동산뉴스_자막영상](https://user-images.githubusercontent.com/115764991/203675686-0aed5b88-0075-46ea-bbcb-07756853ebe2.gif) ![안심전환대출_자막영상](https://user-images.githubusercontent.com/115764991/203675690-8494844b-8220-4f14-a832-20902ee14ada.gif)
 - 22.12.02일
     + To Do : 프로젝트 보고서 제출 및 결과 발표.

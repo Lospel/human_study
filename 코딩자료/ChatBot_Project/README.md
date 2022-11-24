@@ -3,6 +3,7 @@
 ## **ChatBot Project**
 <img src="https://img.freepik.com/free-vector/chatbot-artificial-intelligence-abstract-concept-illustration_335657-3723.jpg?w=2000" width="200" height="200">
 
+- 음성이나 문자를 통한 인간과의 대화를 통해서 특정 작업을 수행하도록 제작된 컴퓨터 프로그램.
 + 2022.11.17 ~ 2022.12.02
 + 사용언어 : Python, SQL
 + 사용툴 : Jupyter Notebook, Colab, Oracle SQL, Vscode, Heroku(22.11.28일 무료버전 종료)
