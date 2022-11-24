@@ -13,7 +13,7 @@
 + [To_Do_List](To_Do_List.md)
 
 ## **카카오 i 오픈 빌더(Kakao i Open Builder)**
-![챗봇 관리자센터](https://i.kakao.com/docs/getting-started-overview)
+[챗봇 관리자센터](https://i.kakao.com/docs/getting-started-overview)
 - 카카오 인공지능 기술을 이용하여 카카오톡 채널 챗봇과 카카오미니 보이스봇을 동시에 설계할 수 있는 카카오 AI 설계 플랫폼.
 - 카카오톡 채널을 통해 제동되는 대화형 인터페이스의 챗봇.
 ![카카오톡 채널 챗봇 서비스](https://i.kakao.com/docs/assets/getting-started/examples.png)
