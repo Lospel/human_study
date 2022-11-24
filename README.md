@@ -44,8 +44,4 @@
     + [Pyspark](%EC%BD%94%EB%94%A9%EC%9E%90%EB%A3%8C/PySpark)
 - **ChatBot Project**
     + 2022.11.17 ~ 2022.12.02
-    + 사용언어 : Python, SQL
-    + 사용툴 : Jupyter Notebook, Colab, PostgreSQL, Kakao i Open Builder,  Vscode, Heroku(22.11.28일 무료버전 종료)
-    + <img src="https://user-images.githubusercontent.com/115764991/203668663-164d2152-51d1-42c2-bac6-ac195ca9a1a0.png" width="100" height="100">
-    + [ChatBot_Project](%EC%BD%94%EB%94%A9%EC%9E%90%EB%A3%8C/ChatBot_Project)
-    + [To_Do_List](%EC%BD%94%EB%94%A9%EC%9E%90%EB%A3%8C/ChatBot_Project/To_Do_List.md)
+    + [ChatBot Project](https://github.com/Lospel/chatbot_project)
