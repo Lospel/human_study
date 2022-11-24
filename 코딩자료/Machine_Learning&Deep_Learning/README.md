@@ -1,4 +1,6 @@
 ## **MachineLearning & DeepLearning**
+<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fblog.lgcns.com%2F2212&psig=AOvVaw3dV9CTJ7kRnioaoqqh93wT&ust=1669339138942000&source=images&cd=vfe&ved=2ahUKEwiBh66E08X7AhXguVYBHYlVDBkQjRx6BAgAEAo" width="200" height="200">
+
 - 2022.10.17 ~ 2022.11.04
 - 사용툴 : Colab, Kaggle
 - TensorFlow, PyTorch 기법 학습

@@ -41,6 +41,7 @@
     + 2022.11.07 ~ 2022.11.17
     + 사용툴 : Ubuntu, Jupyter Notebook, Colab
     + Lambda, PairRDD, RDD, SparkDataFrame 등 학습
+    + [Pyspark](%EC%BD%94%EB%94%A9%EC%9E%90%EB%A3%8C/PySpark)
 - **ChatBot Project**
     + 2022.11.17 ~ 2022.12.02
     + 사용언어 : Python, SQL
