@@ -17,6 +17,6 @@
 - 22.12.01일
     + To Do : 프로젝트 보고서 작성
     + [챗봇 보고서](%EB%B6%80%EB%8F%99%EC%82%B0_%EC%B1%97%EB%B4%87_%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EC%B7%A8%EC%97%85%EC%9A%A9.pdf)
-    + <img src="https://user-images.githubusercontent.com/115764991/203675686-0aed5b88-0075-46ea-bbcb-07756853ebe2.gif" width="300" height="300"> <img src="https://user-images.githubusercontent.com/115764991/203675690-8494844b-8220-4f14-a832-20902ee14ada.gif" width="300" height="300">
+    + <img src="https://user-images.githubusercontent.com/115764991/203675686-0aed5b88-0075-46ea-bbcb-07756853ebe2.gif" width="200" height="200"> <img src="https://user-images.githubusercontent.com/115764991/203675690-8494844b-8220-4f14-a832-20902ee14ada.gif" width="200" height="200">
 - 22.12.02일
     + To Do : 프로젝트 보고서 제출 및 결과 발표.
