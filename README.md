@@ -45,7 +45,6 @@
 - **ChatBot Project**
     + 2022.11.17 ~ 2022.12.02
     + [ChatBot Project](https://github.com/Lospel/chatbot_project)
-    + <a href="https://github.com/Lospel/chatbot_project"><img src="https://simpleicons.org/icons/chatbot.svg-FFD000?style=flat-square&logo=ChatBot&logoColor=white"/></a>
 ## **라이브러리**
 - [전체 라이브러리](requirements.txt)
 - 주요 라이브러리
