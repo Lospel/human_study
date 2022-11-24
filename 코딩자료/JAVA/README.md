@@ -4,7 +4,8 @@
 - 사용툴: Eclipse, Vscode
 - Java 기초 문법 학습 및 실습.
 - Java SE, Java EE 버전을 사용.
-- [Java SE](JAVA_SE\work_space), [Java EE](JAVA_EE\workspace)
+- [Java SE](JAVA_SE/work_space), [Java EE](JAVA_EE/workspace)
+
 ## **Servlet**
 ![Servelt 동작 구조](https://user-images.githubusercontent.com/115764991/203480326-54192b44-9afa-4544-9ea1-a3f2f3e1b7ca.png)
 - Servelt 동작 구조
