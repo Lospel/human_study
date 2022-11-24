@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;Ex04_WebBasic/src/main/resources/static/image/kitten.jfif&apos; to &apos;kittenjfif.jpg&apos;" description="Rename resource &apos;kitten.jfif&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/resources/static/image/kitten.jfif" name="kittenjfif.jpg" stamp="1664340905094" updateReferences="true"/>
-</session>
