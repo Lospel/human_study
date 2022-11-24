@@ -1,0 +1,27 @@
+INDEX VERSION 1.131
+D:\AI_Class\JAVA_EE\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\241355353.index
+\CafeManagement\src\main\java
+D:\AI_Class\JAVA_EE\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2169042482.index
+\Valid_Test01\src\main\java
+D:\AI_Class\JAVA_EE\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1996252667.index
+\TagExercise\src\main\java
+D:\AI_Class\JAVA_EE\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3217894776.index
+\Ex15_MyBatis\src\main\java
+D:\AI_Class\JAVA_EE\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2824644672.index
+\MemberManagement\src\main\java
+D:\AI_Class\JAVA_EE\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\88208514.index
+\Ex04_JspUse\src\main\java
+D:\AI_Class\JAVA_EE\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2649129047.index
+\Ex010_ValidationUtils\src\main\java
+D:\AI_Class\JAVA_EE\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\9096451.index
+\Ex012_Valid_Annotation\src\main\java
+D:\AI_Class\JAVA_EE\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2759356524.index
+\Ex05_JspUse\src\main\java
+D:\AI_Class\JAVA_EE\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1562013343.index
+\Ex04_JspUse\src\main\java
+D:\AI_Class\JAVA_EE\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3499266941.index
+\Ex05_JspUse\src\main\java
+D:\AI_Class\JAVA_EE\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1344143405.index
+\Ex09_Vaildator\src\main\java
+D:\AI_Class\JAVA_EE\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2394609148.index
+\CafeManagement\src\main\java

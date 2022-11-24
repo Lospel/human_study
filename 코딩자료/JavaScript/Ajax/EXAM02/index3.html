@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li {
+            font-size: 40px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <ol>
+        <!-- 문제점 : innerHTML에 들어갈 내용이 너무 많음 -->
+        <!-- 그래서 별도의 파일을 만들어서 사용해야 함. -->
+        <!-- 그 파일을 가져올 때 비동기 통신으로 처리가 가능함. -->
+        <li><a onclick="fetch('./txt/HTML').then(
+            function (response){
+                response.text().then(
+                    function(text){
+                            document.querySelector('article').innerHTML=text;
+                    }
+                )
+            });">HTML</a></li>
+        <li><a onclick="fetch('./txt/CSS').then(
+           function (response){
+                response.text().then(
+                    function(text){
+                            document.querySelector('article').innerHTML=text;
+                    }
+                )
+            });">CSS</a></li>
+        <li><a onclick="fetch('./txt/JS').then(
+                   function (response){
+                response.text().then(
+                    function(text){
+                            document.querySelector('article').innerHTML=text;
+                    }
+                )
+                    });">JavaScript</a>
+        </li>
+        <li><a onclick="fetch('./txt/jQuery').then(
+                    function (response){
+                response.text().then(
+                    function(text){
+                            document.querySelector('article').innerHTML=text;
+                    }
+                )
+                    });">jQuery</a>
+        </li>
+        <li><a onclick="fetch('./txt/AJAX').then(
+            function (response){
+                response.text().then(
+                    function(text){
+                            document.querySelector('article').innerHTML=text;
+                    }
+                )
+            });">AJAX</a>
+        </li>
+    </ol>
+
+    <article>
+
+    </article>
+
+
+</body>
+
+</html>

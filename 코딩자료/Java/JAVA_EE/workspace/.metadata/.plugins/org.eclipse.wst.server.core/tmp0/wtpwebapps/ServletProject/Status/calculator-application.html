@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	.box {
+		width:50px;
+		text-align: right;
+	}
+	.button {
+		width: 50px;
+		text-align : justify;
+	}
+</style>
+</head>
+<body>
+	<form action="/CalcApplication" method="post">
+		<div>
+			<input type="text" value="0" class="box" name="value" />
+		</div>
+		<div>
+			<input type="submit" value="+" class="button" name="operator" />
+			<input type="submit" value="-" class="button" name="operator" />
+			<input type="submit" value="=" class="button" name="operator" />	
+		</div>
+	</form>
+</body>
+</html>

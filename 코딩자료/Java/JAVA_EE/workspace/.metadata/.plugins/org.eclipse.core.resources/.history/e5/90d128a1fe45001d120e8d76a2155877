@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.study.springboot.jdbc.iOrder">
+	<select id="loadOrder" resultType="com.study.springboot.jdbc.MenuDTO">
+		select mobile, menu, qty, price, created from sold_list order by created
+	</select>
+	<insert id="addOrder">
+		insert into sold_list values (#{param1}, #{param2}, #{param3},#{param4},to_char(sysdate, YYYYMMddHHss))
+	</insert>
+</mapper>
