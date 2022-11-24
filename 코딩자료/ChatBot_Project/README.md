@@ -8,6 +8,6 @@
 + 사용언어 : Python, SQL
 + 사용툴 : Jupyter Notebook, Colab, PostgreSQL, Kakao i Open Builder,  Vscode, Heroku(22.11.28일 무료버전 종료)
 + <img src="https://user-images.githubusercontent.com/115764991/203668663-164d2152-51d1-42c2-bac6-ac195ca9a1a0.png" width="100" height="100">
++ Heroku 무료 서버 종료로 인하여 서비스가 22.11.28일 이후로 중단됩니다.
 + [챗봇 보고서](%EB%B6%80%EB%8F%99%EC%82%B0_%EC%B1%97%EB%B4%87_%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EB%B3%B4%EA%B3%A0%EC%84%9C.pdf)
 + [To_Do_List](To_Do_List.md)
-+ Heroku 무료 서버 종료로 인하여 서비스가 22.11.28일 이후로 중단됩니다.
