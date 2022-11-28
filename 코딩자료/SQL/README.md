@@ -17,3 +17,6 @@
 ## **PostgreSQL**
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/540px-Postgresql_elephant.svg.png?20080116191800" width="200" height="200">
 
+- 오픈 소스 객체-관계형 데이터베이스 관리 시스템(ORDBMS).
+- 공공API를 이용한 데이터베이스(DB)를 제작하고 Heroku 서버와 연동을 하여 챗봇 프로젝트를 완성함.
+- [ChatBot Project](https://github.com/Lospel/chatbot_project)
