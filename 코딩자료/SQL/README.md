@@ -10,6 +10,10 @@
 ## **Oracle SQL**
 <img src="https://www.oracle.com/a/ocom/img/sql.svg" width="200" height="200">
 
+- Oracle 데이터베이스에서 SQL 작업을 위해 개발한 통합 개발 환경(IDE).
+- 테이블, 뷰, 인덱스, 시노님, 시퀀스, CURD 및 기본 함수와 조인 등을 학습함.
+<img src="https://shopping-phinf.pstatic.net/main_3247301/32473015920.20221019141623.jpg?type=w300" width="100" height="100">
+
 ## **PostgreSQL**
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/540px-Postgresql_elephant.svg.png?20080116191800" width="200" height="200">
 
