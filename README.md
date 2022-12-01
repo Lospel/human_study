@@ -45,6 +45,12 @@
 - **ChatBot Project**
     + 2022.11.17 ~ 2022.12.02
     + [ChatBot Project](https://github.com/Lospel/chatbot_project)
+- **Streamlit**
+    - 2022.12.08
+    - 사용툴 : Vscode
+    - Streamlit의 기초 문법을 학습함.
+    - Pandas, Numpy, Matplotlib, Sklearn 등을 활용하여 데이터를 시각화 및 분석함.
+    - [Streamlit](https://github.com/Lospel/streamlit-app-human)
 ## **라이브러리**
 - [전체 라이브러리](requirements.txt)
 - 주요 라이브러리
