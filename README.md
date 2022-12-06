@@ -52,6 +52,8 @@
     - Pandas, Numpy, Matplotlib, Sklearn 등을 활용하여 데이터를 시각화 및 분석함.
     - [Streamlit](https://github.com/Lospel/streamlit-app-human)
     - [Streamlit_publicData_project](https://github.com/Lospel/Streamlit-publicData-project)
+- **R**
+  - 2022.12.08 
 ## **라이브러리**
 - [전체 라이브러리](requirements.txt)
 - 주요 라이브러리
