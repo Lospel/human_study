@@ -53,7 +53,10 @@
     - [Streamlit](https://github.com/Lospel/streamlit-app-human)
     - [Streamlit_publicData_project](https://github.com/Lospel/Streamlit-publicData-project)
 - **R**
-  - 2022.12.08 
+    - 2022.12.12 
+    - 사용툴 : RStudio
+    - R 언어의 기초 문법과 데이터셋 분리 및 시각화를 학습함
+    - [R](%EC%BD%94%EB%94%A9%EC%9E%90%EB%A3%8C/R)
 ## **라이브러리**
 - [전체 라이브러리](requirements.txt)
 - 주요 라이브러리
