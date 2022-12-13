@@ -1,0 +1,232 @@
+---
+title: "R Notebook"
+output:
+  html_document:
+    df_print: paged
+---
+
+## 라이브러리 불러오기
+
+```{r}
+library(tidymodels)
+```
+
+## 데이터 불러오기
+
+```{r}
+data("ames")
+str(ames)
+```
+## 데이터 시각화
+### 시각화 1
+- Scatterplot
+
+```{r}
+ggplot(ames, aes(x=Lot_Area, y=Sale_Price)) + 
+  geom_point(aes(col=Sale_Condition, size=First_Flr_SF)) + 
+  geom_smooth(method="loess", se=F) + 
+  xlim(c(0, 60000)) + 
+  ylim(c(0, 1000000)) + 
+  labs(y="Sale_Price", 
+       x="Lot_Area", 
+       title="Scatterplot", 
+       caption = "Source: midwest")
+```
+
+### 시각화 2
+- Jitter Plot
+
+```{r}
+ggplot(ames, aes(Lot_Area, Sale_Price)) + geom_point() + 
+  geom_smooth(method="lm", se=F) +
+  labs(y="Sale_Price", 
+       x="Lot_Area", 
+       title="Scatterplot with overlapping points", 
+       caption="Source: midwest") +
+  xlim(c(0, 60000))
+```
+
+### 시각화 3
+- Diverging Lollipop Chart
+
+```{r}
+ggplot(ames, aes(x=Sale_Condition, y=Sale_Price, label=Sale_Price)) + 
+  geom_point(stat='identity', fill="black", size=6)  +
+  geom_segment(aes(y = 0, 
+                   x = Sale_Condition, 
+                   yend = Sale_Price, 
+                   xend = Sale_Condition), 
+               color = "black") +
+  geom_text(color="white", size=2) +
+  labs(title="Diverging Lollipop Chart") + 
+  ylim(c(0, 1000000)) + 
+  coord_flip() +
+  theme_bw()
+```
+
+### 시각화 4
+- Bar Chart
+
+```{r}
+ggplot(ames, aes(x=Sale_Condition, y=Sale_Price)) +
+  geom_bar(stat="identity", width=.5, fill="tomato3") +
+  labs(title = "Bar Chart") +
+  ylim(c(0, 100000))  
+```
+
+### 시각화 5
+- Boxplot
+
+```{r}
+ggplot(ames, aes(x=Sale_Condition, y=Sale_Price)) +
+  geom_boxplot(varwidth = T, fill="plum") +
+  labs(title = "Box plot") +
+  ylim(c(0, 100000))
+```
+
+### 시각화 6
+- Area Chart
+
+```{r}
+ggplot(ames, aes(x=Lot_Area, y=Sale_Price)) +
+  geom_area() +
+  labs(title = "Area Chart") +
+  ylim(c(0, 100000))
+```
+
+### 시각화 7
+- Dot Chart
+
+```{r}
+ggplot(ames, aes(x=Sale_Condition, y=Sale_Price)) +
+  geom_point(col="tomato2", size=3) +
+  geom_segment(aes(x=Sale_Condition,
+                   xend=Sale_Condition,
+                   y=min(Sale_Price),
+                   yend=max(Sale_Price)),
+               linetype="dashed",
+               size=0.1) +
+  labs(title="Dot plot") +
+  ylim(c(0, 100000)) + 
+  coord_flip()
+```
+
+### 시각화 8
+- Histogram
+
+```{r}
+ggplot(ames, aes(x=Sale_Price)) +
+  geom_histogram(aes(fill=Sale_Condition),
+                 col="black",
+                 size=.1) +
+  labs(title="Histogram") +
+  xlim(c(0,100000))
+
+ggplot(ames, aes(x=Sale_Price)) +
+  geom_histogram(aes(fill=Sale_Condition),
+                 col="black",
+                 size=.1,
+                 bins = 5) +
+  labs(title="Histogram with Fixed Bins") +
+  xlim(c(0,100000))
+```
+
+### 시각화 9
+- Density plot
+
+```{r}
+ggplot(ames, aes(x=Sale_Price)) +
+  geom_density(aes(fill=Sale_Condition), alpha=0.8) +
+  labs(title="Density plot") +
+  xlim(c(0,100000))
+```
+
+### 시각화 10
+- Freqpoly
+
+```{r}
+ggplot(ames, aes(x=Sale_Price)) +
+  geom_freqpoly(aes(color=Sale_Condition), position = "identity") +
+  xlim(c(0,100000)) +
+  labs(title = "Freqpoly")
+
+```
+
+### 시각화 11
+
+```{r}
+ggplot(ames, aes(Sale_Price, fill=Sale_Condition)) +
+  geom_bar(position="fill") +
+  xlim(c(0,100000)) +
+  coord_polar()
+```
+
+### 시각화 12
+- Treemap
+
+```{r}
+library(treemapify)
+plotdata = ames %>%
+  count(Sale_Condition)
+ggplot(plotdata, aes(fill=Sale_Condition, area = n,
+                     label=Sale_Condition)) +
+  geom_treemap() +
+  geom_treemap_text(colour="white",
+                    place = "center")
+  labs(title="Treemap")
+```
+
+### 시각화 13
+- Dotplot
+
+```{r}
+ggplot(ames, aes(x=Lot_Area)) +
+  geom_dotplot() +
+  xlim(c(0,75000)) +
+  ylim(c(0,100000)) +
+  labs(title="Dotplot")
+```
+
+### 시각화 14
+- Ridgeline plots
+
+```{r}
+library(ggridges)
+ggplot(ames,aes(x=Sale_Price, y=Sale_Condition, fill=Sale_Condition)) +
+  geom_density_ridges() +
+  theme_ridges() +
+  labs("Ridgeline plots")
+```
+
+### 시각화 15
+
+```{r}
+library(scales)
+ggplot(ames, aes(x=Year_Built, y=Sale_Price)) +
+  geom_line(color="indianred3",
+            size=1) +
+  geom_smooth() +
+  labs(title = "Time Rate") +
+  theme_minimal()
+```
+
+### 시각화 16
+
+```{r}
+library(scatterplot3d)
+with(ames,{
+  scatterplot3d(x=Bedroom_AbvGr,
+                y=Kitchen_AbvGr,
+                z=TotRms_AbvGrd,
+                main="3D Scatterplot")
+})
+```
+
+### 시각화 17
+
+```{r}
+ggplot(ames, aes(x=Sale_Condition, y=Sale_Price)) + 
+  geom_violin() +
+  labs(title = "Violin plot")
+```
+

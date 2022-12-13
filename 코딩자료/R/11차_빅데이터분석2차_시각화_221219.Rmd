@@ -1,0 +1,303 @@
+---
+title: "11차 빅데이터 분석 II 및 시각화"
+output:
+  html_document:
+    toc: yes
+    df_print: paged
+  html_notebook:
+    toc: yes
+---
+
+## 프로젝트 개요
+- 강의명 : (산대특)_공공데이터 활용 빅데이터 분석 및 시각화 전문가 과정 육성
+- 교과목명 : 빅데이터 분석 II 및 시각화
+- 프로젝트 주제 : tidymodels 라이브러리 및 Sale Price 데이터를 활용한 시각화 및 머신러닝 모델 개발
+- 프로젝트 마감일 : 2022년 12월 19일 
+- 수강생명 : 김도위
+
+## 평가 1. 라이브러리 불러오기 (5점)
+- 주요 라이브러리 및 설치 불러오는 코드를 작성한다. 
+
+```{r}
+# install.packages('tidymodels')
+library(tidymodels)
+```
+
+## 평가 2. 데이터 불러오기 (5점)
+- sale_price 데이터를 불러온다. 
+- head() 함수를 활용하여 데이터를 개괄적으로 보여주도록 한다. 
+```{r}
+data("ames")
+head(ames)
+```
+
+## 평가 3. 데이터 시각화 (50점)
+- 시각화 종류에 관계없이 시각화 10개를 작성한다. 
+- 평가기준
+  + 10개 작성 : 50점
+  + 7개 작성 : 35점
+  + 5개 작성 : 25점
+  + 3개 작성 : 15점
+- 참고자료
+  + URL : http://r-statistics.co/Complete-Ggplot2-Tutorial-Part1-With-R-Code.html
+  
+### (1) 산점도그래프
+- Lot_Area 기준으로 Sale_Price 산점도 작성함.
+- 대부분의 Sale_Condition 값들은 50000 값 이하에 몰려 있지만 그 이상의 값(이상치)은 대부분 Normal 형태를 취하고 있는 것을 알 수 있다.
+
+```{r}
+ggplot(ames, aes(x = Lot_Area, 
+                 y = Sale_Price, 
+                 color = Sale_Condition)) + 
+  geom_point() + 
+  theme_bw()
+```
+
+### (2) Scatterplot그래프
+- Garage_Area 를 기준으로 Sale_Price 그래프 작성함.
+- Garage_Area 값들의 대부분은 중간값 아래로 형성되어 있다. Garage_Area 값이 커질수록 Sale_Price 값이 증가하는 것을 선을 통해 알 수 있지만 증가값의 폭이 크지 않다는 것을 알 수 있다. 또한 Garage_Area 값이 1250 을 넘어갈 때는 오히려 Sale_Price 값이 줄어드는 것을 알 수 있다.
+
+```{r}
+ggplot(ames, aes(x=Garage_Area, y=Sale_Price)) + 
+  geom_point(aes(col=Sale_Condition)) + 
+  geom_smooth(method="loess", se=F) + 
+  ylim(c(0, 1000000)) + 
+  labs(y="Sale_Price", 
+       x="Garage_Area", 
+       title="Scatterplot") +
+  theme_bw()
+```
+
+### (3) Jitterplot 그래프
+- Lot_Frontage 를 기준으로 Sale_Price 그래프 작성함.
+- Lot_Frontage 가 증가할수록 Sale_Price 값이 증가하는 것을 선을 통해 알 수 있다. 이상치가 존재하지만 대부분의 Lot_Frontage 값은 100에 몰려 있으며, Sale_Price 값은 4e+05 아래에 형성되어 있음을 알 수 있다.
+
+```{r}
+ggplot(ames, aes(Lot_Frontage, Sale_Price)) + geom_point() + 
+  geom_smooth(method="lm", se=F) +
+  labs(y="Sale_Price", 
+       x="Lot_Frontage", 
+       title="Jitterplot") +
+    theme_bw()
+```
+
+### (4) 막대 그래프
+- Sale_Condition 별로 가지고 있는 Sale_Price 값을 바 그래프로 작성함.
+- Sale_Condition 중에서 Partial 에 해당하는 값이 가장 낮은 것을 알 수 있다. 다른 값은 대부분 Sale_Price 50,000 값을 넘는 것을 알 수 있으며, 가장 높은 값은 Normal에 해당하는 것을 알 수 있다.
+
+```{r}
+ggplot(ames, aes(x=Sale_Condition, y=Sale_Price)) +
+  geom_bar(stat="identity", width=.5, fill="tomato3") +
+  labs(title = "Bar Chart") +
+  ylim(c(0, 100000))  +
+  theme_bw()
+```
+
+### (5) 영역 그래프
+- Lot_Area 를 기준으로 Sale_Price 값을 영역 그래프로 작성함.
+- Lot_Area 값이 약 50,000 이하의 경우에는 Sale_Price 값의 이상치가 몰여 있어서 정확한 분석을 할 수 없지만,  Lot_Area 값이 약 60,000 값을 넘을 때와 약 160,000 값을 넘을 때 Sale_Price 값이 큰 폭으로 증가하는 모습을 볼 수 있다. 이를 통해 Lot_Area 와 Sale_Price가 유의미한 상관관계에 해당한다고 볼 수 있다.
+
+```{r}
+ggplot(ames, aes(x=Lot_Area, y=Sale_Price)) +
+  geom_area() +
+  labs(title = "Area Chart") +
+  theme_bw()
+```
+
+### (6) 히스토그램 그래프
+- Sale_Price 를 기준으로 Sale_Condition으로 나눈 뒤, 갯수 값 별로 히스토그램을 작성함.
+- Sale_Condition 값 중, Abnorml이  Sale_Price에서 가장 낮은 값을 가지고 있다. 대부분의 영역에서 Normal이 많은 부분을 차지하고 있다. Sale_Price에서 중간값에는 Abnorml이 1순위에 해당하지만 중간값 이후에서는 1순위가 Normal인 것을 알 수 있다.
+
+```{r}
+ggplot(ames, aes(x=Sale_Price)) +
+  geom_histogram(aes(fill=Sale_Condition),
+                 col="black",
+                 size=.1) +
+  labs(title="Histogram") +
+  xlim(c(0,100000)) +
+  theme_bw()
+```
+
+### (7) 밀도 그래프
+- Sale_Condition 별, Sale_Price의 밀도를 그래프로 작성함.
+- Normal의 경우, Sale_Price 값 25,000 에서 100,000 값에 고르게 분포되어 있지만, AdjLand 값은 75,000에서 87,500 사이에 많은 값이 몰려 있다는 것을 알 수 있다.
+
+```{r}
+ggplot(ames, aes(x=Sale_Price)) +
+  geom_density(aes(fill=Sale_Condition), alpha=0.8) +
+  labs(title="Density plot") +
+  xlim(c(0,100000)) +
+  theme_bw()
+```
+
+### (8) 빈도 다각형 그래프
+- Garage_Cond 별, Garage_Area 를 기준으로 빈도 다각형 그래프를 작성함.
+- 대부분의 Garage_Area 값은 약 500에 몰려 있으며, 그 형태 또한 대부분 Typical이다. Garage_Area 값이 클수록 오히려 모든 부분에서 count 값이 줄어드는 것을 알 수 있다. 1순위는 Typical 이지만 2순위가 No_Garage인 것을 알 수 있다.
+
+```{r}
+ggplot(ames, aes(x=Garage_Area)) +
+  geom_freqpoly(aes(color=Garage_Cond), position = "identity") +
+  theme_bw() +
+  labs(title = "Freqpoly")
+```
+
+### (9) Treemap 그래프
+- Sale_Condition을 기준으로 count 값을 Treemap으로 작성함.
+- 대부분 값들은 Normal에 해당하는 것을 알 수 있으며, 히스토그램에서는 보이지 않던 Partial 부분이 2번째 많은 것으로 보아 Sale_Price에서 빈값으로 등록된 Partial 부분이 많다는 것을 알 수 있다.
+
+```{r}
+library(treemapify)
+plotdata = ames %>%
+  count(Sale_Condition)
+ggplot(plotdata, aes(fill=Sale_Condition, area = n,
+                     label=Sale_Condition)) +
+  geom_treemap() +
+  geom_treemap_text(colour="white",
+                    place = "center")
+```
+
+### (10) 능선형 그래프
+- Garage_Cond 별, Garage_Area를 기준으로 그래프를 작성함.
+- 각 Garage_Cond 별로 Garage_Area 값을 확인할 수 있다. Poor과 Fair 값의 경우에는 Garage_Area가 약 250에 값이 최고값을 가진 것을 알 수 있다. Typical 과 Good 값은 약 500 값에 최고값을 가진다. Excellent 값은 특이하게도 약 200부터 약 1100 값까지 물결 형태를 보여주고 있다. 이를 통해 Excellent는 특정 값과 기준으로 구성되어 있음을 알 수 있다.
+
+```{r}
+library(ggridges)
+ggplot(ames,aes(x=Garage_Area, y=Garage_Cond, fill=Garage_Cond)) +
+  geom_density_ridges() +
+  theme_ridges() +
+  labs("Ridgeline plots") +
+  theme_bw()
+```
+
+### (11) 바이올린 그래프
+- Lot_Config 별, Lot_Area 기준으로 그래프 작성함.
+- 대부분의 Lot_Config 값은 0에서 25,000 값 사이에 몰려 있는 것을 알 수 있다. 이 중 Corner, CulDSac, Inside 값은 높은 Lot_Area 값을 가지고 있는 것을 확인할 수 있다. 1순위는 Inside, 2순위는 Corner, 3순위는 CulDSac임을 알 수 있다.
+
+```{r}
+ggplot(ames, aes(x=Lot_Config, y=Lot_Area)) + 
+  geom_violin() +
+  labs(title = "Violin plot") +
+  theme_bw()
+```
+
+## 평가 4. 요약 통계 구하기 (10점)
+- Sale_Price가 500000 이상인 데이터 중에서 Pool_QC에 따른 평균 Sale_Price 값을 구한다. 
+
+```{r}
+# 코드
+ames %>%
+  filter(Sale_Price >= 500000) %>%
+  group_by(Pool_QC) %>%
+  summarise(avg_Sale_Price = mean(Sale_Price))
+```
+
+## 평가 5. 머신러닝 모델링 (20점)
+- 주어진 규칙에 따라 머신러닝 코드를 작성한다. 
+  + `8:2` 비율로 훈련데이터셋 및 테스트데이터셋으로 분리한다. (5점)
+  + 모델링은 `RandomForest`와 `glmnet` 알고리즘을 활용한다. (10점)
+    - 만약 1개만 사용 시 5점만 부여
+  + feature Engineering 코드는 주어진 코드이기 때문에 그대로 활용한다. 
+- 옵션: 필요 시, 라이브러리 설치를 한다. 
+  + `install.packages(c('ranger', 'glmnet'))`
+- Sale_Price와 각 모델의 예측 결과표를 만든다. (5점)
+
+### (1) 훈련/테스트 데이터셋 만들기 
+- `8:2` 비율로 훈련데이터셋 및 테스트데이터셋으로 분리한다. (5점)
+```{r}
+set.seed(42)
+
+Mutation_split = initial_split(ames, strata = 'Sale_Price', prop = 0.8)
+
+Mt_train = training(Mutation_split)
+Mt_test = testing(Mutation_split)
+
+# 다음 코드는 예시다
+Mt_recipe = recipe(
+    Sale_Price ~ Longitude + Latitude + Lot_Area + Neighborhood + Year_Sold, 
+    data = Mt_train
+  ) %>%
+  step_other(Neighborhood) %>% 
+  step_dummy(all_nominal()) %>%
+  step_center(all_predictors()) %>%
+  step_scale(all_predictors()) %>%
+  step_log(Sale_Price, base = 10) %>% 
+  
+  prep(training = Mt_train, retain = TRUE)
+
+Mt_test_normalized <- bake(Mt_recipe, new_data = Mt_test,
+                        all_predictors())
+```
+
+### (2) RandomForest 
+- RandomForest 모형을 작성 후, 확인한다.
+
+```{r}
+# Random Forest
+Mt_rf_fit = rand_forest(mode = "regression", mtry = .preds(), trees = 700) %>%
+  set_engine("ranger") %>%
+  fit(
+    Sale_Price ~ ., data = bake(Mt_recipe, new_data = NULL)
+  )
+
+Mt_rf_fit
+```
+
+### (3) glmnet 
+- glmnet 모형을 작성 후, 확인한다. 
+
+```{r}
+# glmnet
+Mt_gl_fit = linear_reg(penalty = 0.001, mixture = 0.3) %>% 
+  set_engine("glmnet") %>%
+  fit(Sale_Price ~ ., data = bake(Mt_recipe, new_data = NULL))
+
+Mt_gl_fit
+```
+
+### (4) 예측 결과표 만들기
+- Sale_Price 컬럼과 예측 모델 결과표를 합한 새로운 데이터 프레임이다. 
+
+```{r}
+Mt_test_normalized <- bake(Mt_recipe, new_data = Mt_test, all_predictors())
+
+Mt_test_results <- Mt_test  %>% 
+  select(Sale_Price) %>% 
+  mutate(Sale_Price = log10(Sale_Price)) %>% 
+  bind_cols(
+    predict(Mt_rf_fit, new_data = Mt_test_normalized) %>%
+      rename(randomForest = .pred)
+    , predict(Mt_gl_fit, new_data = Mt_test_normalized) %>%
+      rename(glmnet = .pred)
+  )
+
+Mt_test_results
+```
+
+## 평가 6. 두개의 모형 비교 (10점)
+- 회귀모형 평가지표를 활용하여 예측 지표를 작성한다. (5점)
+
+```{r}
+results_left = Mt_test_results %>% 
+  metrics(truth = Sale_Price, estimate = randomForest) %>% 
+  mutate(model = 'randomForest')
+
+results_right = Mt_test_results %>% 
+  metrics(truth = Sale_Price, estimate = glmnet) %>% 
+  mutate(model = 'glmnet')
+
+bind_rows(results_left, results_right)
+```
+
+- 두개의 그래프를 비교하는 코드를 작성한다. (5점)
+
+```{r}
+Mt_test_results %>% 
+  gather(model, prediction, -Sale_Price) %>% 
+  ggplot(aes(x = prediction, y = Sale_Price)) + 
+  geom_abline(col = "green", lty = 2) + 
+  geom_point(alpha = .4) + 
+  facet_wrap(~model) + 
+  coord_fixed() + 
+  theme_bw()
+```
+

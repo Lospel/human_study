@@ -1,0 +1,151 @@
+---
+title: "R Notebook"
+output: 
+  html_notebook:
+    toc: yes
+---
+
+## 라이브러리 불러오기
+- R 머신러닝 라이브러리를 불러온다.
+```{r}
+library(tidymodels)
+```
+
+## 데이터 불러오기
+- sale_price 데이터를 불러온다.
+
+```{r}
+data("ames")
+str(ames)
+```
+
+## 데이터 시각화
+- ggplot 라이브러리 통해서 진행함
+  + URL : http://r-statistics.co/Complete-Ggplot2-Tutorial-Part1-With-R-Code.html
+  
+- 타겟변수는 Sale_Price (y축)  
+```{r}
+ggplot(ames, aes(x = Garage_Area
+                 , y = Sale_Price
+                 , color = Sale_Condition)) +
+  geom_point() +
+  theme_bw()
+```
+
+## 데이터 가공
+- 데이터 가공은 dplyr, stringr 등등 활용
+  + dplyr : https://dplyr.tidyverse.org/ or [Examples](https://www.listendata.com/2016/08/dplyr-tutorial.html)
+
+### (1) filter()
+- 데이터를 조건식을 통해서 행 추출
+
+```{r}
+ames %>%
+  filter(Sale_Price == 105000)
+```
+
+### (2) Select()
+- 특정 열 추출
+
+```{r}
+ames %>%
+  select(MS_SubClass, starts_with("Sale")) %>%
+  filter(Sale_Price == 105000)
+```
+
+
+### (3) summarize() & group_by()
+- 데이터 요약 통계
+
+```{r}
+ames %>%
+  filter(Sale_Price <= 505000)  %>%
+  group_by(Garage_Cond) %>%
+  summarise(avg_price = mean(Sale_Price)
+            , std_price = sd(Sale_Price))
+```
+
+- iris 데이터 활용 예제
+```{r}
+ggplot(iris, aes(x=Sepal.Length
+                 , y= Sepal.Width
+                 , colour = Species
+                 , size= Petal.Length)) +
+  geom_point() +
+  labs(title = "Scatter Plot")
+```
+
+## 머신러닝 모델링
+- 데이터셋 분리
+- 모델 구축
+- 평가
+
+### (1) 데이터셋 분리
+- 7:3 훈련데이터, 테스트데이터 셋 분리
+
+```{r}
+set.seed(42)
+
+data_split = initial_split(ames, strata = "Sale_Price", prop = 0.7)
+
+ames_train = training(data_split)
+ames_test = testing(data_split)
+
+```
+
+- 각 분리된 데이터를 확인한다.
+```{r}
+dim(ames_train)
+```
+
+```{r}
+dim(ames_test)
+```
+
+### (2) 모델링
+- 랜덤 포레스트를 활용하여 모델링 적용
+```{r}
+rf_features = rand_forest(mode = "regression")
+rf_features
+```
+
+- 데이터셋의 컬럼이 매우 큼
+- 일부 컬럼 선택
+```{r}
+x_features = c("Longitude", "Latitude", "Lot_Area", "Neighborhood", "Year_Sold")
+
+rf_xy_fit = rf_features %>%
+  set_engine('ranger') %>%
+  fit_xy(
+    x = ames_train[,x_features]
+    , y= ames_train$Sale_Price
+  )
+```
+
+- 결과 확인
+```{r}
+rf_xy_fit
+```
+
+- 예측 결과표 작성
+
+```{r}
+test_results = ames_test %>%
+  select(Sale_Price) %>%
+  mutate(Sale_Price = Sale_Price) %>%
+  bind_cols(
+    predict(rf_xy_fit, new_data = ames_test[, x_features])
+  )
+
+test_results %>%
+  slice(1:5)
+```
+
+### (3) 모델 평가
+- 회귀 모델에 대한 평가표를 작성한다.
+
+```{r}
+test_results %>%
+  metrics(truth=Sale_Price
+          , estimate = .pred)
+```
