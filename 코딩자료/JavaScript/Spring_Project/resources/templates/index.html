@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <style>
+    body { margin:0;position:fixed;top:0;right:0;bottom:0;left:0; }
+  </style>
+</head>
+
+<body>
+  <script>
+    
+    var svg = d3.select("body").append("svg")
+      .attr("width", 960)
+      .attr("height", 500)
+    
+     var margin = {top: 20, right: 20, bottom: 20, left: 20};
+
+var width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+    d3.csv("https://raw.githubusercontent.com/LyonDataViz/MOS5.5-Dataviz/master/data/iris.csv" , function(error,data){
+      
+//console.log(data)
+      
+      var space = [width/2,height/2]
+      draw_scatter(data,margin.left,space[0],margin.top,space[1],'sepal_length','sepal_width','plot0')
+      draw_scatter(data,margin.left+space[0],space[0]*2,margin.top,space[1],'sepal_length','petal_width','plot1')
+      draw_scatter(data,margin.left+space[0],space[0]*2,margin.top+space[1],space[1]*2,'sepal_length','petal_width','plot2')
+      draw_scatter(data,margin.left,space[0],margin.top+space[1],space[1]*2,'sepal_length','petal_width','plot3')
+    
+       })
+    
+      function draw_scatter(data, x_start,x_end,y_start,y_end,attribut1,attribut2,id){
+        
+          //categories valeurs
+      let color = d3.scaleOrdinal(d3.schemeCategory20)
+      
+      var scalex = d3.scaleLinear().domain(d3.extent(data, function(d){return d[attribut1]})).range([x_start,x_end])
+      
+      var scaley = d3.scaleLinear().domain(d3.extent(data, function(d){return d[attribut2]})).range([y_end,y_start])
+      
+      svg.selectAll('.'+id) // id = plot
+      				.data(data)
+      				.enter()
+      				.append('circle')
+      				.attr('class',id)
+// Position du cercle (x,y)
+      				.attr('cx',function(d,i){ return scalex(d[attribut1])}) 
+      				.attr('cy',function(d,i){ return scaley(d[attribut2])})
+      				.attr('r',function(d){return d.petal_length}) // rayon
+      			//.attr('fill',color) blue first color de la palette de sclaeOrdianl
+        			.attr('fill',function(d){return color(d.species)})
+      				.style('opacity','0.2')
+// interractions    			
+        			.on("mouseover", function(e){
+// 								d3.select(this)
+//                 		.style('opacity',1)
+        
+        			d3.selectAll('circle')
+              			.style('opacity',function(d){ 
+              						if(d == e){ // e data du point qu'on survole
+                         		 return '1'
+                        	}else{
+                          return '0.2'
+                        	}
+              })
+        
+      				})
+      				.on("mouseout", function(d){
+        				d3.select(this)
+                			.style('opacity',0.2)
+        
+      				})
+      
+     
+           
+        
+      }
+
+  </script>
+</body>

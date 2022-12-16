@@ -1,0 +1,37 @@
+<html layout:decorate="~{layout}">
+<div layout:fragment="content" class="container">
+    <h5 class="my-3 border-bottom pb-2">시각화 등록</h5>
+    <form th:object="${visualForm}" method="post">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+
+        <div class="mb-3">
+            <label for="subject" class="form-label">제목</label>
+            <input type="text" th:field="*{subject}" class="form-control">
+        </div>
+        <div class="mb-3"> 
+            <label for="content" class="form-label">CSV 파일 시각화 요청하기</label>
+                <div class="form-group">
+                    <input type="file" name="file" class="form-control">
+                </div>
+                <div class="form-check my-2">
+                    <input class="form-check-input" type="checkbox" id="lineChart">
+                    <label class="form-check-label" for="lineChart">
+                      선형 그래프
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="barChart">
+                    <label class="form-check-label" for="barChart">
+                      막대 그래프
+                    </label>
+                </div>
+            <div>
+                <canvas id="myChart" width="500" height="200"></canvas>
+            </div> 
+
+        </div>
+        <input type="submit" value="저장하기" class="btn btn-primary my-2">
+        <script th:src="@{/iris_line.js}"></script>
+    </form>
+</div>
+</html>
