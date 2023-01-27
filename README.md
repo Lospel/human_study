@@ -1,7 +1,7 @@
 # (산대특) 공공데이터 활용 빅데이터 분석 및 시각화 전문가 과정 육성
 ## **과정소개**
 - 장소 : 서울휴먼교육센터학원
-- 교육기간 : 2022.08.05 ~ 2023.02.01
+- 교육기간 : 2022.08.05 ~ 2023.02.14
 ## **내용**
 - **Java**
     - 2022.08.05 ~ 2022.08.25
@@ -44,6 +44,7 @@
     + [Pyspark](%EC%BD%94%EB%94%A9%EC%9E%90%EB%A3%8C/PySpark)
 - **ChatBot Project**
     + 2022.11.17 ~ 2022.12.02
+    + 사용툴 : Jupyter Notebook, Colab, PostgreSQL, Kakao i Open Builder, Vscode, Heroku
     + [ChatBot Project](https://github.com/Lospel/chatbot_project)
 - **Streamlit**
     - 2022.12.08
@@ -57,6 +58,10 @@
     - 사용툴 : RStudio
     - R 언어의 기초 문법과 데이터셋 분리 및 시각화를 학습함
     - [R](%EC%BD%94%EB%94%A9%EC%9E%90%EB%A3%8C/R)
+- **Spring Project**
+    - 2022.12.19 ~ 2023.01.31
+    - 사용툴 : Vscode, H2, MySQL, MariaDB, Spring Tools
+    - [Spring Project](https://github.com/Lospel/seoulPublicBicycleProject)
 ## **라이브러리**
 - [전체 라이브러리](requirements.txt)
 - 주요 라이브러리
